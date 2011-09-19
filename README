@@ -1,8 +1,12 @@
-This project has to goal to shared ressources (data) over a network.
+This project has to goal to shared resources (data) over a network.
 
-The objective is to have key authorisations, but library does not known about
+The objective is to have authentification, but library does not known about
 Users, group of users, peers...
 
-User of the library give public keys to do autentifications.
+User of the library give an object for help authentificate.
+
+User library communicate with a user process to centralise requests.
+
+This process communicate directly with peers, or with an other process on the machine.
 
 
