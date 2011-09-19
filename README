@@ -1,0 +1,8 @@
+This project has to goal to shared ressources (data) over a network.
+
+The objective is to have key authorisations, but library does not known about
+Users, group of users, peers...
+
+User of the library give public keys to do autentifications.
+
+
