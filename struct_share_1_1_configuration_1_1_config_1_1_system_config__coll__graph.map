@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; QString \&gt;\n|+ name\l+ value\l|}" alt="" coords="5,457,331,559"/>
+<area shape="rect" id="node4" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="This class is used to config structure for have keys and values in the same structure." alt="" coords="605,158,891,261"/>
+<area shape="rect" id="node8" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; SystemSystemDeamon \&gt;\n|+ name\l+ value\l|}" alt="" coords="583,806,1004,909"/>
+<area shape="rect" id="node12" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; Communication::Type \&gt;\n|+ name\l+ value\l|}" alt="" coords="768,329,1179,431"/>
+<area shape="rect" id="node15" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; int \&gt;\n|+ name\l+ value\l|}" alt="" coords="453,329,744,431"/>
+<area shape="rect" id="node19" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; SystemUserDeamon \&gt;\n|+ name\l+ value\l|}" alt="" coords="1028,806,1433,909"/>
+<area shape="rect" id="node24" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; bool \&gt;\n|+ name\l+ value\l|}" alt="" coords="1359,329,1660,431"/>
+<area shape="rect" id="node10" href="$struct_share_1_1_configuration_1_1_config_1_1_system_system_deamon.html" title="{Share::Configuration::Config::SystemSystemDeamon\n|+ externalListenPort\l+ internalCommunicationType\l+ internalListenPort\l|}" alt="" coords="583,593,929,713"/>
+<area shape="rect" id="node21" href="$struct_share_1_1_configuration_1_1_config_1_1_system_user_deamon.html" title="{Share::Configuration::Config::SystemUserDeamon\n|+ externalCommunicationViaSystemDeamon\l+ externalListenPort\l+ internalCommunicationType\l+ internalListenPort\l|}" alt="" coords="953,585,1284,722"/>
+</map>

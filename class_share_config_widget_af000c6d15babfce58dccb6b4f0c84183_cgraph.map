@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_share_config_widget.html#a3de479e6ba433a5340771d9a37779996" title="Signal that the configuration is valid and should be saved." alt="" coords="263,5,503,35"/>
+<area shape="rect" id="node5" href="$class_share_config_widget.html#a57178f90c14ed6b3364e8d256e410860" title="Signal that user want to quit software." alt="" coords="271,59,495,88"/>
+</map>

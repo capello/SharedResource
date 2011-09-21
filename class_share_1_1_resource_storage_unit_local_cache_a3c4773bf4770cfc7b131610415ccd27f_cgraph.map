@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_share_1_1_configuration.html#a52746c42a7dd74435b03a0f60c92771f" title="Get the uniq instance of the class." alt="" coords="399,5,628,35"/>
+<area shape="rect" id="node5" href="$class_share_1_1_cache.html#acd829173ff33a838d81389ae9796bf30" title="Get the singleton instance." alt="" coords="420,59,607,88"/>
+<area shape="rect" id="node7" href="$class_share_1_1_cache.html#aa100f4b6e4de3e242dc97ed52846f1fb" title="Get free space." alt="" coords="412,112,615,141"/>
+</map>

@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_share_peer_8h.html" title="This file declares Peer class." alt="" coords="376,83,525,112"/>
+<area shape="rect" id="node6" href="$_share_communication_d_bus_8h.html" title="This defines the dbus communication class." alt="" coords="549,83,797,112"/>
+<area shape="rect" id="node8" href="$_share_communication_network_8h.html" title="This defines the network communication class." alt="" coords="821,83,1088,112"/>
+<area shape="rect" id="node16" href="$_share_communication_share_mem_8h.html" title="This defines the share mom communication class." alt="" coords="1755,83,2037,112"/>
+<area shape="rect" id="node18" href="$_share_configuration_8h.html" title="This Class is used to configure all." alt="" coords="1112,83,1315,112"/>
+<area shape="rect" id="node33" href="$_share_communication_8cpp.html" title="Implementation of Auth class." alt="" coords="2061,83,2296,112"/>
+<area shape="rect" id="node35" href="$_share_config_widget_8h.html" title="Config software implementation." alt="" coords="1339,83,1731,112"/>
+<area shape="rect" id="node10" href="$_share_communication_network_8cpp.html" title="Implementation of network communication class." alt="" coords="5,160,291,189"/>
+<area shape="rect" id="node12" href="$_share_configuration_8cpp.html" title="Config software implementation." alt="" coords="315,160,536,189"/>
+<area shape="rect" id="node14" href="$_share_config_widget_8cpp.html" title="Config software implementation." alt="" coords="1880,160,2275,189"/>
+<area shape="rect" id="node21" href="$_share_resource_8cpp.html" title="Implement Resource class." alt="" coords="1659,160,1856,189"/>
+<area shape="rect" id="node23" href="$_share_resource_storage_8cpp.html" title="Implement Resource storage class." alt="" coords="560,160,808,189"/>
+<area shape="rect" id="node25" href="$_share_resource_storage_unit_local_cache_8cpp.html" title="This class store a unit of a Ressource in local disk cache." alt="" coords="832,160,1181,189"/>
+<area shape="rect" id="node27" href="$_share_config_main_window_8h.html" title="Config software implementation." alt="" coords="1205,160,1635,189"/>
+<area shape="rect" id="node29" href="$_share_config_main_window_8cpp.html" title="Config software implementation." alt="" coords="1871,237,2303,267"/>
+<area shape="rect" id="node31" href="$_share_config_software_8cpp.html" title="Config software implementation." alt="" coords="1217,237,1623,267"/>
+</map>

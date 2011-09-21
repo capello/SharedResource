@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; QString \&gt;\n|+ name\l+ value\l|}" alt="" coords="5,457,331,559"/>
+<area shape="rect" id="node4" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="This class is used to config structure for have keys and values in the same structure." alt="" coords="461,158,747,261"/>
+<area shape="rect" id="node8" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; UserUserDeamon \&gt;\n|+ name\l+ value\l|}" alt="" coords="420,857,809,959"/>
+<area shape="rect" id="node12" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; Communication::Type \&gt;\n|+ name\l+ value\l|}" alt="" coords="399,329,809,431"/>
+<area shape="rect" id="node15" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; int \&gt;\n|+ name\l+ value\l|}" alt="" coords="833,329,1124,431"/>
+<area shape="rect" id="node19" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; bool \&gt;\n|+ name\l+ value\l|}" alt="" coords="1023,729,1324,831"/>
+<area shape="rect" id="node10" href="$struct_share_1_1_configuration_1_1_config_1_1_user_user_deamon.html" title="{Share::Configuration::Config::UserUserDeamon\n|+ externalListenPort\l+ internalCommunicationType\l+ internalListenPort\l|}" alt="" coords="457,584,772,704"/>
+</map>

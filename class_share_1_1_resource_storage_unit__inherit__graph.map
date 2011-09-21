@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_share_1_1_resource_storage_unit_communication.html" title="{Share::ResourceStorageUnitCommunication\n||+ ResourceStorageUnitCommunication()\l+ ~ResourceStorageUnitCommunication()\l+ storeData()\l}" alt="" coords="5,305,301,425"/>
+<area shape="rect" id="node5" href="$class_share_1_1_resource_storage_unit_local_cache.html" title="{Share::ResourceStorageUnitLocalCache\n||+ ResourceStorageUnitLocalCache()\l+ ~ResourceStorageUnitLocalCache()\l+ storeData()\l&#45; computeFileName()\l}" alt="" coords="325,297,600,434"/>
+</map>

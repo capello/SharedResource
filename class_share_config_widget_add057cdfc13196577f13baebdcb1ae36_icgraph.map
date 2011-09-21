@@ -1,0 +1,30 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_share_config_widget.html#aae6c15ec792a3f91d5159494612e87cd" title="Constructor." alt="" coords="1523,503,1797,533"/>
+<area shape="rect" id="node5" href="$class_share_config_widget.html#a6ee3e7c2d3ef64512c1d345ef62f66a2" title="Set the System deamon value of the system configuration file." alt="" coords="784,133,1099,162"/>
+<area shape="rect" id="node10" href="$class_share_config_widget.html#a6e916c6deea1cb9acbbe5eee50c671df" title="Set the User deamon value of the system configuration file." alt="" coords="792,186,1091,215"/>
+<area shape="rect" id="node13" href="$class_share_config_widget.html#aeff517a42ed06d5c00ba74572c429e71" title="Set the value of the listen port of the System deamon of the system configuration file..." alt="" coords="779,239,1104,269"/>
+<area shape="rect" id="node16" href="$class_share_config_widget.html#af9a84ba0b25bca4be76a636a9b49cbb6" title="Set the internal communication mode for library or user deamon to the system deamon." alt="" coords="744,293,1139,322"/>
+<area shape="rect" id="node19" href="$class_share_config_widget.html#a72cf7b6b43f76ac9cfd8209ed6a7ed98" title="Set the local listen port for System deamon of the system configuration file." alt="" coords="761,346,1121,375"/>
+<area shape="rect" id="node22" href="$class_share_config_widget.html#a92becadc212209f0ddffcd6144b56ab5" title="Set the System cache path of the system configuration file." alt="" coords="344,450,675,479"/>
+<area shape="rect" id="node28" href="$class_share_config_widget.html#adbb54a9a708d0f3de7e9ad04b248bbbe" title="Set the System max cache size of the system configuration file (in GB)." alt="" coords="771,503,1112,533"/>
+<area shape="rect" id="node31" href="$class_share_config_widget.html#a577de8eaf3524aed214ba23c6941517e" title="Set the user deamon external listen port of the system configuration file." alt="" coords="787,557,1096,586"/>
+<area shape="rect" id="node34" href="$class_share_config_widget.html#ab628b40e0d87c8ea07c4b2863d50f0d5" title="Set the flag that define the way to connect with external peers of the system configuration file..." alt="" coords="739,610,1144,639"/>
+<area shape="rect" id="node37" href="$class_share_config_widget.html#a071560cea68f2228898952d954d3a218" title="Set the internal communication mode for library to user deamon." alt="" coords="752,663,1131,693"/>
+<area shape="rect" id="node40" href="$class_share_config_widget.html#afbd01658aac6e926be157d9c7c38738b" title="Set the local listen port for User deamon of the system configuration file." alt="" coords="769,717,1113,746"/>
+<area shape="rect" id="node43" href="$class_share_config_widget.html#a964d1a974b0075067cbc536065b11fd9" title="Set the User cache path of the system configuration file." alt="" coords="352,769,667,798"/>
+<area shape="rect" id="node49" href="$class_share_config_widget.html#a0b28dd0dccaf6c3e0a7771fe313bb1fb" title="Set the System max cache size of the system configuration file (in GB)." alt="" coords="347,822,672,851"/>
+<area shape="rect" id="node52" href="$class_share_config_widget.html#a9966cd4f95d10ed51a7eb3365591773f" title="Set the user flag which define if the process use the System configuration or an overwrite configurat..." alt="" coords="348,875,671,905"/>
+<area shape="rect" id="node57" href="$class_share_config_widget.html#a8e4928fa20a5bf4cefcf7a65d944eb4a" title="Set the user deamon flag of the user configuration file." alt="" coords="368,929,651,958"/>
+<area shape="rect" id="node60" href="$class_share_config_widget.html#aec60e29947889ff8332fd31422d51611" title="Set the external listen port for the user deamon." alt="" coords="363,982,656,1011"/>
+<area shape="rect" id="node63" href="$class_share_config_widget.html#acedb767f4b7c3002844b13b34212df80" title="Set the internal communication mode for library to user deamon." alt="" coords="328,1035,691,1065"/>
+<area shape="rect" id="node66" href="$class_share_config_widget.html#abd9b6ccfb07ba9baf226cd630261d5dc" title="Set the local listen port for User deamon of the system configuration file." alt="" coords="345,1089,673,1118"/>
+<area shape="rect" id="node69" href="$class_share_config_widget.html#ac700eb4b7ad4666ce9ccfa3357da74ee" title="Set the User cache path of the user configuration file." alt="" coords="360,1142,659,1171"/>
+<area shape="rect" id="node75" href="$class_share_config_widget.html#aad3c46c4a33fc5735684690f8c705f29" title="Set the User max cache size of the user configuration file (in GB)." alt="" coords="355,1195,664,1225"/>
+<area shape="rect" id="node78" href="$class_share_config_widget.html#a71e8b975d7f927c0fcd1456add1a8c35" title="The slot inform widget if the config has been saved." alt="" coords="395,1249,624,1278"/>
+<area shape="rect" id="node80" href="$class_share_config_widget.html#a3299b056ff67844ad51bfbc00b2be1cb" title="The slot inform widget if the config has been loaded." alt="" coords="391,1302,628,1331"/>
+<area shape="rect" id="node7" href="$class_share_config_widget.html#afa0c0a981d6521e9ace97887afbe2ea8" title="Method that create the widget in “system” tab." alt="" coords="1193,503,1473,533"/>
+<area shape="rect" id="node25" href="$class_share_config_widget.html#a3de4fc711514cc350acf1ca83a32616a" title="Slot for click on system select directory button of system tab." alt="" coords="767,450,1116,479"/>
+<area shape="rect" id="node46" href="$class_share_config_widget.html#aaaeda57105ef8bc4a52439cb5efd8279" title="Slot for click on user select directory button of system tab." alt="" coords="775,821,1108,850"/>
+<area shape="rect" id="node54" href="$class_share_config_widget.html#a2f32558607657fb7f9ba4ffbba8d2420" title="Method that create the widget in “user” tab." alt="" coords="1201,1075,1465,1105"/>
+<area shape="rect" id="node72" href="$class_share_config_widget.html#a8653474d0d95b8174178c05d4d643055" title="Slot for click on user select directory button of user tab." alt="" coords="783,1229,1100,1258"/>
+</map>

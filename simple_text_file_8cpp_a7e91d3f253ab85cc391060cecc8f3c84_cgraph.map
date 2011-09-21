@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$simple_text_file_8cpp.html#a00692edccc904298fc85c96203d52397" title="usage" alt="" coords="239,5,297,35"/>
+<area shape="rect" id="node5" href="$class_share_1_1_resource_1_1_config.html#af85daca67875c6429898a8e768afd727" title="Get instance method." alt="" coords="141,59,395,88"/>
+<area shape="rect" id="node7" href="$class_share_1_1_resource_1_1_config.html#a9c669d63cb5a7c8fc261abd9646407ac" title="Set user StorageMethod." alt="" coords="127,112,409,141"/>
+<area shape="rect" id="node19" href="$class_share_1_1_resource_1_1_config.html#a1cbd9376eeb5989be5413168edbb8386" title="Set default encrypt flag." alt="" coords="107,165,429,195"/>
+<area shape="rect" id="node21" href="$class_share_1_1_resource_1_1_config.html#a6cbdd652bcb1b9a335a8850b12fdcd2b" title="Set default public flag." alt="" coords="121,219,415,248"/>
+<area shape="rect" id="node23" href="$simple_text_file_8cpp.html#ad390adc929c51a86b16e0f9f90c0a253" title="shareFile" alt="" coords="228,272,308,301"/>
+<area shape="rect" id="node9" href="$class_share_1_1_configuration.html#a52746c42a7dd74435b03a0f60c92771f" title="Get the uniq instance of the class." alt="" coords="567,5,796,35"/>
+<area shape="rect" id="node11" href="$class_share_1_1_configuration.html#a185cc2f59910257256a248df58d2a5d0" title="This method get the system communication mode of system settings." alt="" coords="477,59,885,88"/>
+<area shape="rect" id="node13" href="$class_share_1_1_configuration.html#ab0993653503ce32996b1dfee2b0a7298" title="This method get the “use” system config flag of user settings." alt="" coords="519,112,844,141"/>
+<area shape="rect" id="node15" href="$class_share_1_1_configuration.html#a06d025f1de30d1b9bfb32a56f3bc59c9" title="This method get the user communication mode of system settings." alt="" coords="485,165,877,195"/>
+<area shape="rect" id="node17" href="$class_share_1_1_configuration.html#a37e9b6b02b51d02fd199fa0a38f6d757" title="This method get the user communication mode of user settings." alt="" coords="493,219,869,248"/>
+<area shape="rect" id="node25" href="$class_share_1_1_resource.html#ae016b7cd910f0ab4ccd6816224994a19" title="Get the ResourceId of the resource." alt="" coords="600,272,763,301"/>
+</map>

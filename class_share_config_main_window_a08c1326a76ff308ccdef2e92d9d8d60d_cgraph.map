@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_share_1_1_configuration.html#a52746c42a7dd74435b03a0f60c92771f" title="Get the uniq instance of the class." alt="" coords="425,5,655,35"/>
+<area shape="rect" id="node5" href="$class_share_config_main_window.html#a0b75e7da07a04856d74e709ba252274e" title="Signal a quit request from the MainWidget." alt="" coords="409,59,671,88"/>
+<area shape="rect" id="node7" href="$class_share_config_main_window.html#ae0426d3055a9369c2cc43b4a33bf279c" title="Slot write into status bar that we are saving." alt="" coords="411,112,669,141"/>
+<area shape="rect" id="node9" href="$class_share_config_main_window.html#acb123c49e27453832ad54eda253cc84c" title="Slot write into status bar that load has be done or fail." alt="" coords="403,165,677,195"/>
+<area shape="rect" id="node11" href="$class_share_config_main_window.html#ac7f5c5827e305183583a1a6f25cac8e4" title="Slot write into status bar that save has be done or fail." alt="" coords="407,219,673,248"/>
+<area shape="rect" id="node13" href="$class_share_1_1_configuration.html#acdf1cbacb0d625067884313ac5ba4319" title="This slot requests to load configuration." alt="" coords="428,272,652,301"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_share_1_1_communication.html" title="High level communication class." alt="" coords="5,59,168,88"/>
+<area shape="rect" id="node3" href="$class_share_1_1_communication_d_bus.html" title="DBus communication class." alt="" coords="235,5,429,35"/>
+<area shape="rect" id="node5" href="$class_share_1_1_communication_network.html" title="Network communication class." alt="" coords="225,59,439,88"/>
+<area shape="rect" id="node7" href="$class_share_1_1_communication_share_mem.html" title="Share memory communication class." alt="" coords="217,112,447,141"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_share_1_1_resource_storage_unit.html" title="Unit Storage class." alt="" coords="7,32,207,61"/>
+<area shape="rect" id="node3" href="$class_share_1_1_resource_storage_unit_communication.html" title="Share::ResourceStorageUnitCommunication" alt="" coords="257,5,553,35"/>
+<area shape="rect" id="node5" href="$class_share_1_1_resource_storage_unit_local_cache.html" title="Share::ResourceStorageUnitLocalCache" alt="" coords="268,59,543,88"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_share_config_widget.html#a1c13f2696177055f9ca17344802d824c" title="Signal a change of the flag that define the way to connect with external peers of the system configur..." alt="" coords="460,5,892,35"/>
+<area shape="rect" id="node5" href="$class_share_config_widget.html#ac7d302da100816fa73bcd89c8eac746f" title="ShareConfigWidget::activateSystemUserListenPortBox" alt="" coords="495,59,857,88"/>
+<area shape="rect" id="node7" href="$class_share_config_widget.html#add057cdfc13196577f13baebdcb1ae36" title="ShareConfigWidget::activateApplyButton" alt="" coords="539,112,813,141"/>
+</map>

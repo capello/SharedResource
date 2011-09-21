@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_share_communication_8h.html" title="Share communication provides internal communication." alt="" coords="977,83,1191,112"/>
+<area shape="rect" id="node5" href="$_share_peer_8h.html" title="This file declares Peer class." alt="" coords="376,160,525,189"/>
+<area shape="rect" id="node8" href="$_share_communication_d_bus_8h.html" title="This defines the dbus communication class." alt="" coords="549,160,797,189"/>
+<area shape="rect" id="node10" href="$_share_communication_network_8h.html" title="This defines the network communication class." alt="" coords="821,160,1088,189"/>
+<area shape="rect" id="node18" href="$_share_communication_share_mem_8h.html" title="This defines the share mom communication class." alt="" coords="1755,160,2037,189"/>
+<area shape="rect" id="node20" href="$_share_configuration_8h.html" title="This Class is used to configure all." alt="" coords="1112,160,1315,189"/>
+<area shape="rect" id="node35" href="$_share_communication_8cpp.html" title="Implementation of Auth class." alt="" coords="2061,160,2296,189"/>
+<area shape="rect" id="node37" href="$_share_config_widget_8h.html" title="Config software implementation." alt="" coords="1339,160,1731,189"/>
+<area shape="rect" id="node12" href="$_share_communication_network_8cpp.html" title="Implementation of network communication class." alt="" coords="5,237,291,267"/>
+<area shape="rect" id="node14" href="$_share_configuration_8cpp.html" title="Config software implementation." alt="" coords="315,237,536,267"/>
+<area shape="rect" id="node16" href="$_share_config_widget_8cpp.html" title="Config software implementation." alt="" coords="1880,237,2275,267"/>
+<area shape="rect" id="node23" href="$_share_resource_8cpp.html" title="Implement Resource class." alt="" coords="1659,237,1856,267"/>
+<area shape="rect" id="node25" href="$_share_resource_storage_8cpp.html" title="Implement Resource storage class." alt="" coords="560,237,808,267"/>
+<area shape="rect" id="node27" href="$_share_resource_storage_unit_local_cache_8cpp.html" title="This class store a unit of a Ressource in local disk cache." alt="" coords="832,237,1181,267"/>
+<area shape="rect" id="node29" href="$_share_config_main_window_8h.html" title="Config software implementation." alt="" coords="1205,237,1635,267"/>
+<area shape="rect" id="node31" href="$_share_config_main_window_8cpp.html" title="Config software implementation." alt="" coords="1871,315,2303,344"/>
+<area shape="rect" id="node33" href="$_share_config_software_8cpp.html" title="Config software implementation." alt="" coords="1217,315,1623,344"/>
+</map>

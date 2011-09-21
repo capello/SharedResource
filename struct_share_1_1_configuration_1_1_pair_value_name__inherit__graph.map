@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; SystemSystemDeamon \&gt;\n|+ name\l+ value\l|}" alt="" coords="5,177,427,279"/>
+<area shape="rect" id="node5" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; QString \&gt;\n|+ name\l+ value\l|}" alt="" coords="451,177,776,279"/>
+<area shape="rect" id="node7" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; Communication::Type \&gt;\n|+ name\l+ value\l|}" alt="" coords="800,177,1211,279"/>
+<area shape="rect" id="node9" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; int \&gt;\n|+ name\l+ value\l|}" alt="" coords="1235,177,1525,279"/>
+<area shape="rect" id="node11" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; UserUserDeamon \&gt;\n|+ name\l+ value\l|}" alt="" coords="1549,177,1939,279"/>
+<area shape="rect" id="node13" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; bool \&gt;\n|+ name\l+ value\l|}" alt="" coords="1963,177,2264,279"/>
+<area shape="rect" id="node15" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; SystemUserDeamon \&gt;\n|+ name\l+ value\l|}" alt="" coords="2288,177,2693,279"/>
+</map>

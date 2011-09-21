@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['s_5fcachedirectory',['s_cacheDirectory',['../class_share_1_1_resource_storage.html#ad7dfb57aab3fd574120906d3ae28340b',1,'Share::ResourceStorage']]],
+  ['s_5fdefaultadminportnumber',['s_defaultAdminPortNumber',['../class_share_1_1_communication_network.html#a350e6abd21c5e21ea566e4b26c806512',1,'Share::CommunicationNetwork']]],
+  ['s_5fdefaultstoragemethod',['s_defaultStorageMethod',['../class_share_1_1_resource_storage.html#a1643c92674ba46d749746e55c6d19e85',1,'Share::ResourceStorage']]],
+  ['s_5fdefaultunitsize',['s_defaultUnitSize',['../class_share_1_1_resource_storage.html#a31ee1f8249c2bbb8cd0a5895a7305baf',1,'Share::ResourceStorage']]],
+  ['s_5fdefaultuserportnumber',['s_defaultUserPortNumber',['../class_share_1_1_communication_network.html#a40e331bdc9ad9715511ff2480d1e560b',1,'Share::CommunicationNetwork']]],
+  ['s_5finstance',['s_instance',['../class_share_1_1_cache.html#a82bf872bf4742b31ca6bf6161167b274',1,'Share::Cache::s_instance()'],['../class_share_1_1_resource_1_1_config.html#a5226b883dc9265dd417d04572dfb6a81',1,'Share::Resource::Config::s_instance()']]],
+  ['s_5flistofinstances',['s_listOfinstances',['../class_share_1_1_resource_storage.html#a134052bcd94b18ebdc7e945ac7ec3d48',1,'Share::ResourceStorage']]],
+  ['s_5fmaxportnumber',['s_maxPortNumber',['../class_share_1_1_communication_network.html#a22a823157b162318532c2e7e0c4dd5a6',1,'Share::CommunicationNetwork']]],
+  ['s_5fminadminportnumber',['s_minAdminPortNumber',['../class_share_1_1_communication_network.html#aeaf6d88fccc770213fa4f183f06577b7',1,'Share::CommunicationNetwork']]],
+  ['s_5fminuserportnumber',['s_minUserPortNumber',['../class_share_1_1_communication_network.html#a96ef1f5c236beecdc25134300f7048d6',1,'Share::CommunicationNetwork']]],
+  ['s_5fql_5fknown_5fresource',['s_ql_known_resource',['../class_share_1_1_known_resource.html#a07e9f7585fb058f229ae2a1dcb495f45',1,'Share::KnownResource']]],
+  ['s_5fstoragemethod',['s_storageMethod',['../class_share_1_1_resource_storage.html#a102e0d4f843ac460581b443507a39ab8',1,'Share::ResourceStorage']]],
+  ['s_5funitsize',['s_unitSize',['../class_share_1_1_resource_storage.html#a59147b6fe9255d7c1cb6841ff27afc6a',1,'Share::ResourceStorage']]],
+  ['systemcachepath',['systemCachePath',['../struct_share_1_1_configuration_1_1_config_1_1_system_config.html#afd426dddcb389dac8a35f11634ad75ba',1,'Share::Configuration::Config::SystemConfig']]],
+  ['systemcachequota',['systemCacheQuota',['../struct_share_1_1_configuration_1_1_config_1_1_system_config.html#afd0074dead709683e35c498b42b94408',1,'Share::Configuration::Config::SystemConfig']]],
+  ['systemconfig',['systemConfig',['../struct_share_1_1_configuration_1_1_config.html#ac2a4741857b80e80fd5db5b266e68024',1,'Share::Configuration::Config']]],
+  ['systemdeamon',['systemDeamon',['../struct_share_1_1_configuration_1_1_config_1_1_system_config.html#acf50a44b0a84723c275f30006a3c528c',1,'Share::Configuration::Config::SystemConfig']]]
+];

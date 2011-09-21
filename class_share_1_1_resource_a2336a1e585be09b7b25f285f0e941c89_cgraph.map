@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_share_1_1_resource_storage.html#a87f6ee1a26da062e6b59a19a66c63aec" title="Flush all data to disk or storage system. This function returns only when work is done..." alt="" coords="253,5,464,35"/>
+<area shape="rect" id="node5" href="$class_share_1_1_resource_storage_auth.html#a7aba455027009fa8933216644f137563" title="Flush informations to Resource Unit." alt="" coords="513,5,751,35"/>
+</map>

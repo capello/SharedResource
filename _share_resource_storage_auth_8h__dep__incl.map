@@ -1,0 +1,25 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_share_resource_storage_8h.html" title="This Class is used to store ressources." alt="" coords="399,83,628,112"/>
+<area shape="rect" id="node54" href="$_share_resource_storage_auth_8cpp.html" title="Implement Resource storage class for Authentification." alt="" coords="652,83,929,112"/>
+<area shape="rect" id="node5" href="$_share_resource_storage_unit_communication_8h.html" title="This class store a unit of a Ressource uning communication to store remotly." alt="" coords="116,160,465,189"/>
+<area shape="rect" id="node7" href="$_share_resource_storage_8cpp.html" title="Implement Resource storage class." alt="" coords="5,469,253,499"/>
+<area shape="rect" id="node11" href="$_share_resource_8h.html" title="Shared resource interface." alt="" coords="665,160,855,189"/>
+<area shape="rect" id="node9" href="$_share_resource_storage_unit_communication_8cpp.html" title="This class store a unit of a Ressource using Communication class." alt="" coords="105,237,476,267"/>
+<area shape="rect" id="node13" href="$_share_peer_8h.html" title="This file declares Peer class." alt="" coords="801,237,951,267"/>
+<area shape="rect" id="node33" href="$_share_resource_8cpp.html" title="Implement Resource class." alt="" coords="277,469,475,499"/>
+<area shape="rect" id="node51" href="$simple_text_file_8cpp.html" title="This file implements a simble text file test." alt="" coords="975,237,1292,267"/>
+<area shape="rect" id="node15" href="$_share_communication_8h.html" title="Share communication provides internal communication." alt="" coords="971,315,1184,344"/>
+<area shape="rect" id="node18" href="$_share_communication_d_bus_8h.html" title="This defines the dbus communication class." alt="" coords="1087,392,1335,421"/>
+<area shape="rect" id="node20" href="$_share_communication_network_8h.html" title="This defines the network communication class." alt="" coords="2081,392,2348,421"/>
+<area shape="rect" id="node28" href="$_share_communication_share_mem_8h.html" title="This defines the share mom communication class." alt="" coords="1775,392,2057,421"/>
+<area shape="rect" id="node30" href="$_share_configuration_8h.html" title="This Class is used to configure all." alt="" coords="601,392,804,421"/>
+<area shape="rect" id="node44" href="$_share_communication_8cpp.html" title="Implementation of Auth class." alt="" coords="828,392,1063,421"/>
+<area shape="rect" id="node46" href="$_share_config_widget_8h.html" title="Config software implementation." alt="" coords="1359,392,1751,421"/>
+<area shape="rect" id="node22" href="$_share_communication_network_8cpp.html" title="Implementation of network communication class." alt="" coords="2072,469,2357,499"/>
+<area shape="rect" id="node24" href="$_share_configuration_8cpp.html" title="Config software implementation." alt="" coords="1325,469,1547,499"/>
+<area shape="rect" id="node26" href="$_share_config_widget_8cpp.html" title="Config software implementation." alt="" coords="1643,469,2037,499"/>
+<area shape="rect" id="node36" href="$_share_resource_storage_unit_local_cache_8cpp.html" title="This class store a unit of a Ressource in local disk cache." alt="" coords="952,469,1301,499"/>
+<area shape="rect" id="node38" href="$_share_config_main_window_8h.html" title="Config software implementation." alt="" coords="499,469,928,499"/>
+<area shape="rect" id="node40" href="$_share_config_main_window_8cpp.html" title="Config software implementation." alt="" coords="1153,547,1585,576"/>
+<area shape="rect" id="node42" href="$_share_config_software_8cpp.html" title="Config software implementation." alt="" coords="511,547,916,576"/>
+</map>

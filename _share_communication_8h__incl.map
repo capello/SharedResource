@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_share_peer_8h.html" title="This file declares Peer class." alt="" coords="137,83,239,112"/>
+<area shape="rect" id="node36" href="$_share_message_8h.html" title="Defines a message for communication in share cloud." alt="" coords="263,83,391,112"/>
+<area shape="rect" id="node7" href="$_share_resource_8h.html" title="Shared resource interface." alt="" coords="213,160,344,189"/>
+<area shape="rect" id="node11" href="$_share_auth_8h.html" title="This file declares ShareAuth class." alt="" coords="187,315,285,344"/>
+<area shape="rect" id="node15" href="$_share_unit_8h.html" title="Manage unit class." alt="" coords="273,237,369,267"/>
+<area shape="rect" id="node17" href="$_share_resource_storage_8h.html" title="This Class is used to store ressources." alt="" coords="393,237,575,267"/>
+<area shape="rect" id="node24" href="$_share_resource_storage_unit_8h.html" title="This class store a unit of a Ressource." alt="" coords="415,392,620,421"/>
+<area shape="rect" id="node28" href="$_share_resource_storage_auth_8h.html" title="This class store authentification of a Ressource." alt="" coords="555,315,763,344"/>
+</map>

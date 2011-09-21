@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; Communication::Type \&gt;\n|+ name\l+ value\l|}" alt="" coords="5,329,416,431"/>
+<area shape="rect" id="node4" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="This class is used to config structure for have keys and values in the same structure." alt="" coords="448,158,733,261"/>
+<area shape="rect" id="node8" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; bool \&gt;\n|+ name\l+ value\l|}" alt="" coords="440,329,741,431"/>
+<area shape="rect" id="node11" href="$struct_share_1_1_configuration_1_1_pair_value_name.html" title="{Share::Configuration::PairValueName\&lt; int \&gt;\n|+ name\l+ value\l|}" alt="" coords="765,329,1056,431"/>
+</map>

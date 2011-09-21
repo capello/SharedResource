@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_share_1_1_resource_1_1_id.html" title="Resource Id class This class manage an Id for a Resource. The ID is uniq and will not change during a..." alt="" coords="5,489,149,591"/>
+<area shape="rect" id="node4" href="$class_share_1_1_unit.html" title="{Share::Unit\&lt; qint64 \&gt;\n||+ Unit()\l+ ~Unit()\l}" alt="" coords="173,489,328,591"/>
+<area shape="rect" id="node6" href="$class_share_1_1_unit.html" title="Unit class." alt="" coords="175,58,321,161"/>
+<area shape="rect" id="node8" href="$class_share_1_1_resource_storage.html" title="Class which perform the storage." alt="" coords="352,281,536,799"/>
+<area shape="rect" id="node10" href="$class_share_1_1_resource_storage_auth.html" title="ResourceStorageUnit &lt;&#45;&gt; Auth link." alt="" coords="345,6,548,213"/>
+<area shape="rect" id="node12" href="$class_share_1_1_auth.html" title="Authentification class." alt="" coords="560,454,677,626"/>
+</map>

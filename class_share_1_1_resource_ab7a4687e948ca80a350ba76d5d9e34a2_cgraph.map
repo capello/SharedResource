@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_share_1_1_resource_storage.html#a1bc1517ad156cd41f118a4d184b3d161" title="Get an instance of a Share::ResourceStorage class in function of configuration." alt="" coords="260,5,532,35"/>
+<area shape="rect" id="node7" href="$class_share_1_1_resource_storage.html#a84a9631685bba4b43a966e2485c6a295" title="Set storage method." alt="" coords="247,59,545,88"/>
+<area shape="rect" id="node9" href="$class_share_1_1_resource_1_1_config.html#af85daca67875c6429898a8e768afd727" title="Get instance method." alt="" coords="269,112,523,141"/>
+<area shape="rect" id="node11" href="$class_share_1_1_resource_1_1_config.html#a84551a8f92dff26e6ddd5a87f511f18f" title="Get default owner." alt="" coords="245,165,547,195"/>
+<area shape="rect" id="node13" href="$class_share_1_1_resource_storage.html#ad3c72bcb13fe744d8b4dd2e11d4d9716" title="SetOwner of a resource." alt="" coords="275,219,517,248"/>
+<area shape="rect" id="node15" href="$class_share_1_1_resource_storage.html#ab2f6059e26656b34dee332830d81d007" title="Set public the resource." alt="" coords="277,272,515,301"/>
+<area shape="rect" id="node17" href="$class_share_1_1_resource_storage.html#afe34c44fb5fe2ae9f793248179d14e1a" title="Set the resource encrypted." alt="" coords="264,325,528,355"/>
+<area shape="rect" id="node19" href="$class_share_1_1_resource_storage.html#a20a764375ee21f679ab1691c1f450c30" title="Stores a resource." alt="" coords="289,379,503,408"/>
+<area shape="rect" id="node5" href="$class_share_1_1_resource_storage.html#a39d2b903fac04f2a7649ccbe03859f33" title="Constructor." alt="" coords="596,5,887,35"/>
+<area shape="rect" id="node21" href="$class_share_1_1_resource_storage.html#a7630bbbcb408a3944861f9c2dddb3356" title="Add new storage unit to this storage unit." alt="" coords="600,299,883,328"/>
+<area shape="rect" id="node23" href="$class_share_1_1_resource_storage_auth.html#a3f92a374f1c2b74bdfa05fa7f0fb3583" title="Add a unit part." alt="" coords="624,352,859,381"/>
+<area shape="rect" id="node25" href="$class_share_1_1_resource_storage.html#a74a6c1d777b01a26284ca80394098363" title="Get incrypted resource flag." alt="" coords="608,405,875,435"/>
+<area shape="rect" id="node27" href="$class_share_1_1_resource_storage_unit.html#a3b78e7bbcc41a56fe0a4dde140dc53fb" title="Add data to storage unit." alt="" coords="607,459,876,488"/>
+</map>

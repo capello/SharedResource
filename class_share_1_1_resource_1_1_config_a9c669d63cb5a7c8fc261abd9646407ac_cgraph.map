@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_share_1_1_configuration.html#a52746c42a7dd74435b03a0f60c92771f" title="Get the uniq instance of the class." alt="" coords="425,5,655,35"/>
+<area shape="rect" id="node5" href="$class_share_1_1_configuration.html#a185cc2f59910257256a248df58d2a5d0" title="This method get the system communication mode of system settings." alt="" coords="336,59,744,88"/>
+<area shape="rect" id="node7" href="$class_share_1_1_configuration.html#ab0993653503ce32996b1dfee2b0a7298" title="This method get the “use” system config flag of user settings." alt="" coords="377,112,703,141"/>
+<area shape="rect" id="node9" href="$class_share_1_1_configuration.html#a06d025f1de30d1b9bfb32a56f3bc59c9" title="This method get the user communication mode of system settings." alt="" coords="344,165,736,195"/>
+<area shape="rect" id="node11" href="$class_share_1_1_configuration.html#a37e9b6b02b51d02fd199fa0a38f6d757" title="This method get the user communication mode of user settings." alt="" coords="352,219,728,248"/>
+</map>

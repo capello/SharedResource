@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_share_config_widget.html#a964d1a974b0075067cbc536065b11fd9" title="Set the User cache path of the system configuration file." alt="" coords="391,32,705,61"/>
+<area shape="rect" id="node5" href="$class_share_config_widget.html#a626486c3b51753473164256073d20b43" title="Signal a change of the user cache path of the system configuration file." alt="" coords="755,5,1099,35"/>
+<area shape="rect" id="node7" href="$class_share_config_widget.html#add057cdfc13196577f13baebdcb1ae36" title="ShareConfigWidget::activateApplyButton" alt="" coords="789,59,1064,88"/>
+</map>

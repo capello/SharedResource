@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_share_configuration_8cpp.html" title="Config software implementation." alt="" coords="5,83,227,112"/>
+<area shape="rect" id="node5" href="$_share_resource_8cpp.html" title="Implement Resource class." alt="" coords="251,83,448,112"/>
+<area shape="rect" id="node7" href="$_share_resource_storage_8cpp.html" title="Implement Resource storage class." alt="" coords="472,83,720,112"/>
+<area shape="rect" id="node9" href="$_share_resource_storage_unit_local_cache_8cpp.html" title="This class store a unit of a Ressource in local disk cache." alt="" coords="744,83,1093,112"/>
+<area shape="rect" id="node11" href="$_share_config_main_window_8h.html" title="Config software implementation." alt="" coords="1117,83,1547,112"/>
+<area shape="rect" id="node13" href="$_share_config_main_window_8cpp.html" title="Config software implementation." alt="" coords="895,160,1327,189"/>
+<area shape="rect" id="node15" href="$_share_config_software_8cpp.html" title="Config software implementation." alt="" coords="1351,160,1756,189"/>
+</map>
