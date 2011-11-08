@@ -20,3 +20,7 @@ ADD_LIBRARY(libShareResource SHARED ${libShareResource_SOURCES}
 
 TARGET_LINK_LIBRARIES(libShareResource ${QT_LIBRARIES})
 
+add_subdirectory(Tools)
+add_subdirectory(Tests)
+
+set(CMAKE_BUILD_TYPE debug)

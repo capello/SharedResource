@@ -1,7 +1,7 @@
 /// \file
 /// \brief Manage unit class
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
 ///
 /// The unit class is used to add unit to a numeric type.
 
@@ -16,8 +16,8 @@ namespace Share {
       PERCENTS  ///< Percent unit. For a set of 75 elements, 50\<PERCENTS\> means 37 elements (not 38).
     };
     /// \brief Constructor.
-    Unit();
+    Unit() { };
     /// \brief Destructor.
-    virtual ~Unit();
+    virtual ~Unit() { };
   };
 };
