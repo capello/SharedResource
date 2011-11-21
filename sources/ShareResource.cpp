@@ -25,4 +25,41 @@ namespace Share
   {
     std::cout << "Dest\n";
   }
+  
+  Resource::Config::Config()
+  {
+    if (!loadConfigFile())
+    {
+      canManuallyModify = true;
+      // Load config file failed.
+      setUserStorage(true);
+    }
+  }
+  
+  Resource::Config::~Config()
+  {
+  }
+  
+  bool Resource::Config::isUserStorage() const
+  {
+    return storageMethod.getStorageMethod();
+  }
+  
+  void Resource::Config::setUserStorage(bool p_isUserMethod)
+  {
+    if (canManuallyModify)
+      storageMethod.setStorageMethod(p_isUserMethod?Share::ResourceStorage::DISK:Share::ResourceStorage::DEAMON);
+  }
+  
+  /// \TODO To implements. if load is true, set manual Modified to false.
+  bool Resource::Config::loadConfigFile()
+  {
+    return false;
+  }
+  
+  /// \TODO To implements.
+  bool Resource::Config::saveConfigFile() const
+  {
+    return false;
+  }
 }

@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "ShareResource.h"
+#include <ShareResourceId.h>
 
 void usage(char *p_name, std::ostream& p_stream = std::cout)
 {
@@ -16,6 +17,12 @@ void usage(char *p_name, std::ostream& p_stream = std::cout)
   p_stream << std::endl << "Return 0 if no error, else return 1." << std::endl;
 }
 
+Share::ResourceId shareFile(QFile &p_file)
+{
+  Share::ResourceId l_resourceId;
+  
+  return l_resourceId;
+}
 
 /// \brief main function of simpleTextFile.
 int main(int nargs, char *argv[])
@@ -44,6 +51,15 @@ int main(int nargs, char *argv[])
     std::cerr << "File " << l_file.fileName().toStdString() << " does not exists.\n";
     return 1;
   }
+  
+  Share::Resource::Config l_resource_config;
+  l_resource_config.setUserStorage(true);
+  
+  Share::ResourceId l_id = shareFile(l_file);
+  
+  //md5Resource();
+  
+  // Compare md5sum and size of l_file and resource
   
   
   return 0;

@@ -1,11 +1,13 @@
 /// \file ShareResourceStorage.h
 /// \brief This Class is used to store ressources.
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
 ///
 /// The class store data to a file, to a deamon.
 ///
 
+#include <QString>
+#include <QtGlobal>
  
 namespace Share
 {
@@ -20,7 +22,7 @@ namespace Share
     /// \brief Constructor.
     ResourceStorage();
     /// \brief Destructor.
-    virtual ~RessourceStorage();
+    virtual ~ResourceStorage();
     
     
     /// \enum StorageMethod
@@ -32,7 +34,6 @@ namespace Share
       DISK,  ///< The storage is done on the disk.
       DEAMON ///< The storage is done sending data to a deamon which store data on disk
     };
-    static StorageMethod s_storage_method; 
     
     
     /// \brief Set cache directory.
@@ -52,6 +53,10 @@ namespace Share
     /// the call of this function.
     static void setStorageMethod(StorageMethod p_storage_method);
     
+    /// \brief Get storage method.
+    /// \return Storage method in used
+    static StorageMethod getStorageMethod();
+    
     /// \brief Set cache size.
     /// \pre DISK mode.
     /// \param[in] p_size the size allocated to disk cache.
@@ -69,5 +74,6 @@ namespace Share
     static qint64 s_cacheUsed;
     static qint64 s_cacheFree;
     static qint64 s_unitSize;
+    static StorageMethod s_storage_method; 
   };
 };

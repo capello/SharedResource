@@ -1,7 +1,7 @@
 /// \file
 /// \brief Identification of a ressource.
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
 
 
 namespace Share {

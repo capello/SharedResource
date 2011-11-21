@@ -6,7 +6,9 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} interface include)
 
 SET(libShareResource_SOURCES sources/ShareResource.cpp 
                               sources/SharePeer.cpp
-                              sources/ShareAuth.cpp)
+                              sources/ShareAuth.cpp
+                              sources/ShareResourceId.cpp
+                              sources/ShareResourceStorage.cpp)
 SET(libShareResource_HEADERS )
    
 QT4_WRAP_CPP(libShareResource_HEADERS_MOC ${libShareResource_HEADERS})
