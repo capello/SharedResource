@@ -20,6 +20,14 @@ void usage(char *p_name, std::ostream& p_stream = std::cout)
 Share::ResourceId shareFile(QFile &p_file)
 {
   Share::ResourceId l_resourceId;
+  // Open file cannot fail.
+  p_file.open(QIODevice::ReadOnly);
+  QByteArray l_file_in_byte_array = p_file.readAll();
+  p_file.close();
+  std::cout << "File size: " << p_file.size() << ", bytearray size: " << l_file_in_byte_array.size() << std::endl;
+  Share::Resource l_resource(l_file_in_byte_array);
+  
+  
   
   return l_resourceId;
 }

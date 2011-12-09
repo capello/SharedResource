@@ -69,6 +69,16 @@ namespace Share
     ///
     /// This function returns the free cache size. If \b precondition does not match, return must be ignored.
     static qint64 getCacheFree();
+    
+    /// \brief Stores a resource.
+    /// \param[in] p_resource The resource to share.
+    /// This method store the resource into one or more Share::StorageUnit.
+    void store(QByteArray &p_resource);
+    
+    /// \brief Gets a resource.
+    /// This method gets a resource.
+    void get(QByteArray &p_resource) const;
+    
   private:
     static qint64 s_cacheSize;
     static qint64 s_cacheUsed;
