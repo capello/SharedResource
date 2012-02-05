@@ -1,11 +1,15 @@
 /// \file
 /// \brief This file declares Peer class.
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
 ///
 /// This file declares the class use to manage peers.
-#include <QHostAddress>
+/// A peer can be a local session deamon, or system deamon,
+/// or a network address.
+
+#include <QtNetwork/QHostAddress>
 #include "ShareResource.h"
+#include "ShareCommunication.h"
 
 
 namespace Share
@@ -24,16 +28,13 @@ namespace Share
     /// \brief Destructor.
     virtual ~Peer();
     
-    /// \brief Set address of the peer.
-    /// \param[in] p_peer_addr IP address of peer.
-    void setAddr(QHostAddress & p_peer_addr);
-    
     /// \brief Set authentificate of peer.
     /// \param[in] p_peer_auth Authentificate peer.
     void setAuth(Auth & p_peer_auth);
     
     /// \brief Open network connection with peer.
     void openConnection();
+    
     /// \brief Close network connection with peer.
     void closeConnection();
     
@@ -46,8 +47,12 @@ namespace Share
     /// \param[in] p_resources Resource to send to peer.
     void sendResource(Resource & p_resources);
     
+    /// \brief Getter of the communication class associated for the peer.
+    /// \return Reference of communication class use to contact this peer.
+    Communication & communicationGet() const;
+    
   private:
     Auth peer_auth;
-    QHostAddress peer_addr;
+    Communication peer_communication;
   };
 }

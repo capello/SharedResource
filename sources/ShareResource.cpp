@@ -47,8 +47,7 @@ namespace Share
   
   void Resource::Config::setUserStorage(bool p_isUserMethod)
   {
-    if (canManuallyModify)
-      storageMethod.setStorageMethod(p_isUserMethod?Share::ResourceStorage::DISK:Share::ResourceStorage::DEAMON);
+    std::cerr << "<" << __func__ << "> not yet implemented\n";
   }
   
   /// \TODO To implements. if load is true, set manual Modified to false.

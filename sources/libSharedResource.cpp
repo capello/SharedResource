@@ -1,7 +1,7 @@
 /// \file
 /// \brief General library file, contains library initializer, global variables.
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
 ///
 /// This file contains library intializers, global variables.
 ///
@@ -9,7 +9,7 @@
 /// chapter \ref abstract "one".
 
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
 /// \mainpage ShareResource project.
 /// \section abstract Abstract
 /// This library goal is to share ressource that can be file, application data, over the network.
@@ -28,4 +28,6 @@
 /// \section NamingResource Naming a ressource.
 /// \section SearchingResource Search a ressource
 /// Search
+
+
 

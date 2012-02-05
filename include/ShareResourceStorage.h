@@ -28,15 +28,17 @@ namespace Share
     /// \enum StorageMethod
     /// \brief How library must store resource
     ///
-    /// This enumerate is used to define how storage has to be done.
+    /// This enumerate is used to define how storage has to be done. From the library point of view.
+    /// Deamons can communicate by network or local communication to share informations.
     enum StorageMethod
     {
-      DISK,  ///< The storage is done on the disk.
-      DEAMON ///< The storage is done sending data to a deamon which store data on disk
+      SYSTEM_DEAMON, ///< The storage is done sending data to a system deamon which store data on disk
+      USER_DEAMON, ///< The storage is done in user disk space, all instance of library use the same local deamon.
+                   ///< If no user deamon started, the library start one.
+      NETWORK ///< The storage is done over the network.
     };
     
     
-    /// \brief Set cache directory.
     /// \pre DISK mode. Else call is ignore and nothing change.
     /// \param[in] p_path path to use to store cache files.
     /// \return false if path could not be set.

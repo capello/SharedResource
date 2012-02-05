@@ -1,7 +1,7 @@
 /// \file
 /// \brief QCA authentification.
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
 ///
 /// The class QCAAuth is used to authentification using public keys.
 #include <ShareAuth.h>
@@ -15,5 +15,5 @@ namespace Share {
     /// \brief Destructor.
     virtual ~QCAAuth();
     
-  }
+  };
 };
