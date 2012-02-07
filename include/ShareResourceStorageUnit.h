@@ -1,13 +1,15 @@
 /// \file
 /// \brief This class store a unit of a Ressource.
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
 ///
 /// A unit is a piece of.
 /// For example is you have a unit size equal to 64MB, a ressource of 264MB will be 
 /// separate into 5 units. Each unit will be replicated over the network.
 /// This class can exists only if Share::ShareResourceStorage::s_storage_method == Share::StorageMethod::DISK
 
+#ifndef __SHARE_RESSOURCE_STORAGE_UNIT_H
+#define __SHARE_RESSOURCE_STORAGE_UNIT_H
 
 #include <qfile.h>
 
@@ -38,3 +40,4 @@ namespace Share
     QFile associatedFile;
   };
 };
+#endif

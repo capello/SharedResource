@@ -4,6 +4,10 @@
 /// \version v0.1.0
 ///
 /// The class QCAAuth is used to authentification using public keys.
+
+#ifndef __SHARE_QCA_AUTH_H
+#define __SHARE_QCA_AUTH_H
+
 #include <ShareAuth.h>
 
 namespace Share {
@@ -17,3 +21,5 @@ namespace Share {
     
   };
 };
+
+#endif

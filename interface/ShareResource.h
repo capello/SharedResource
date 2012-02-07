@@ -5,6 +5,9 @@
 ///
 /// This file is the entry point of libSharedResource.
 
+#ifndef __SHARE_RESOURCE_H
+#define __SHARE_RESOURCE_H
+
 #include <QtCore>
 #include "ShareAuth.h"
 #include <ShareUnit.h>
@@ -88,3 +91,4 @@ private:
 };
 };
 
+#endif

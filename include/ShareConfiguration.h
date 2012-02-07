@@ -3,6 +3,10 @@
 /// \author Anthony Jaguenaud
 /// \version v0.1.0
 ///
+
+#ifndef __SHARE_CONFIGURATION_H
+#define __SHARE_CONFIGURATION_H
+
 #include <QString>
 
 namespace Share {
@@ -20,3 +24,5 @@ namespace Share {
   };
   
 };
+
+#endif

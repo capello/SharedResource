@@ -6,6 +6,9 @@
 /// The class store data to a file, to a deamon.
 ///
 
+#ifndef __SHARE_RESOURCE_STORAGE_H
+#define __SHARE_RESOURCE_STORAGE_H
+
 #include <QString>
 #include <QtGlobal>
  
@@ -89,3 +92,4 @@ namespace Share
     static StorageMethod s_storage_method; 
   };
 };
+#endif

@@ -8,7 +8,8 @@ SET(libShareResource_SOURCES sources/ShareResource.cpp
                               sources/SharePeer.cpp
                               sources/ShareAuth.cpp
                               sources/ShareResourceId.cpp
-                              sources/ShareResourceStorage.cpp)
+                              sources/ShareResourceStorage.cpp
+                              sources/ShareCommunicationNetwork.cpp)
 SET(libShareResource_HEADERS )
    
 QT4_WRAP_CPP(libShareResource_HEADERS_MOC ${libShareResource_HEADERS})

@@ -1,10 +1,16 @@
 /// \file
 /// \brief Share communication provides internal communication.
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
 ///
 /// This file provides a communication service between clients. The class ShareCommunication 
 /// define here is an abstract class.
+
+#ifndef __SHARE_COMMUNICATION_H
+#define __SHARE_COMMUNICATION_H
+
+#include "SharePeer.h"
+#include "ShareMessage.h"
 
 namespace Share {
   /// \brief High level communication class.
@@ -29,3 +35,5 @@ namespace Share {
     Peer peer;
   };
 };
+
+#endif

@@ -1,9 +1,12 @@
 /// \file
 /// \brief This defines the dbus communication class.
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
 /// 
 /// This file defines the class to communicate using dbus message bus.
+
+#ifndef __SHARE_COMMUNICATION_DBUS_H
+#define __SHARE_COMMUNICATION_DBUS_H
 
 #include "ShareCommunication.h"
 
@@ -18,3 +21,5 @@ namespace Share{
     virtual ~CommunicationDBus();
   };
 };
+
+#endif

@@ -7,6 +7,9 @@
 /// A peer can be a local session deamon, or system deamon,
 /// or a network address.
 
+#ifndef __SHARE_PEER_H
+#define __SHARE_PEER_H
+
 #include <QtNetwork/QHostAddress>
 #include "ShareResource.h"
 #include "ShareCommunication.h"
@@ -14,6 +17,9 @@
 
 namespace Share
 {
+  // Use cross reference between class Peer <--> Communication
+  class Communication;
+  
   /// \brief Peer class.
   class Peer
   {
@@ -49,10 +55,11 @@ namespace Share
     
     /// \brief Getter of the communication class associated for the peer.
     /// \return Reference of communication class use to contact this peer.
-    Communication & communicationGet() const;
+    Communication * communicationGet() const;
     
   private:
     Auth peer_auth;
-    Communication peer_communication;
+    Communication *peer_communication;
   };
 }
+#endif

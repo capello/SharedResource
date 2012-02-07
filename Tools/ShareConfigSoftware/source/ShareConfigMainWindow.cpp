@@ -6,14 +6,15 @@
 /// This file implements the main window of configuration software for share library. This can be use for configure system or user configuration files.
 #include <ShareConfigMainWindow.h>
 #include <QtGui>
+#include <ShareConfigWidget.h>
 
 ShareConfigMainWindow::ShareConfigMainWindow()
 {
   // Create de main window.
   
-  QPushButton *button = new QPushButton;
+  ShareConfigWidget *mainWidget = new ShareConfigWidget;
   
-  QMainWindow::setCentralWidget(button);
+  QMainWindow::setCentralWidget(mainWidget);
   
   statusBar()->showMessage(tr("Loading..."));
 }

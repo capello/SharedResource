@@ -5,6 +5,9 @@
 ///
 /// The unit class is used to add unit to a numeric type.
 
+#ifndef __SHARE_UNIT_H
+#define __SHARE_UNIT_H
+
 namespace Share {
   /// \brief Unit class.
   template<class Type> class Unit
@@ -21,3 +24,5 @@ namespace Share {
     virtual ~Unit() { };
   };
 };
+
+#endif

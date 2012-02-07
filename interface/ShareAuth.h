@@ -1,11 +1,14 @@
 /// \file
 /// \brief This file declares ShareAuth class.
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
 /// 
 /// ShareAuth is a authentification class.
 /// The class default class is a "yes" class. That mean, the class reply every time that authentification is good.
 /// If you want your own class, you should derived this class.
+
+#ifndef __SHARE_AUTH_H
+#define __SHARE_AUTH_H
 
 namespace Share {
   /// \brief Authentification class.
@@ -21,3 +24,5 @@ namespace Share {
     
   };
 };
+
+#endif

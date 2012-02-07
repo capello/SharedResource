@@ -1,7 +1,10 @@
 /// \file
 /// \brief This class define a cache of all known resources over network.
 /// \author Anthony Jaguenaud
-/// \version v0.0
+/// \version v0.1.0
+
+#ifndef __SHARE_KNOWN_RESSOURCE_H
+#define __SHARE_KNOWN_RESSOURCE_H
 
 #include <qlist.h>
 
@@ -21,3 +24,5 @@ namespace Share
     ResourceId resource_id;
   };
 };
+
+#endif
