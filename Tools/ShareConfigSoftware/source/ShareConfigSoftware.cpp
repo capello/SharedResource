@@ -1,7 +1,7 @@
 /// \file
 /// \brief Config software implementation.
 /// \author Anthony Jaguenaud
-/// \version v0.1.0
+/// \version v..
 ///
 /// This file implements the configuration software for share library. This can be use for configure system or user configuration files.
 
@@ -14,7 +14,9 @@ int main(int arg_n, char * arg_v[])
   QApplication app(arg_n, arg_v);
   
   ShareConfigMainWindow  *window = new ShareConfigMainWindow;
-  window->show();
   
+  QObject::connect(window,SIGNAL(quitRequest()),&app,SLOT(quit()));
+  
+  window->show();
   return app.exec();
 }

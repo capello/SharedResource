@@ -1,7 +1,7 @@
 /// \file
 /// \brief This defines the network communication class.
 /// \author Anthony Jaguenaud
-/// \version v0.1.0
+/// \version v..
 /// 
 /// This file defines the class to communicate over network.
 
@@ -38,8 +38,6 @@ namespace Share{
     
     /// \brief Constant for configuration usage.
     static const int s_defaultUserPortNumber;
-    
-    /// \b
   };
 };
 

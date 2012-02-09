@@ -1,7 +1,7 @@
 /// \file
 /// \brief Share communication provides internal communication.
 /// \author Anthony Jaguenaud
-/// \version v0.1.0
+/// \version v..
 ///
 /// This file provides a communication service between clients. The class ShareCommunication 
 /// define here is an abstract class.
@@ -16,6 +16,13 @@ namespace Share {
   /// \brief High level communication class.
   class Communication {
   public:
+    enum Type 
+    {
+      DBUS,
+      SHARE_MEM,
+      NETWORK
+    };
+    
     /// \brief Constructor
     Communication();
     virtual ~Communication();

@@ -4,13 +4,16 @@ PROJECT(ShareResource)
 FIND_PACKAGE(Qt4 REQUIRED)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} interface include)
 
+SET(CMAKE_CXX_FLAGS -std=c++0x)
+
 SET(libShareResource_SOURCES sources/ShareResource.cpp 
                               sources/SharePeer.cpp
                               sources/ShareAuth.cpp
                               sources/ShareResourceId.cpp
                               sources/ShareResourceStorage.cpp
-                              sources/ShareCommunicationNetwork.cpp)
-SET(libShareResource_HEADERS )
+                              sources/ShareCommunicationNetwork.cpp
+                              sources/ShareConfiguration.cpp)
+SET(libShareResource_HEADERS include/ShareConfiguration.h)
    
 QT4_WRAP_CPP(libShareResource_HEADERS_MOC ${libShareResource_HEADERS})
 
