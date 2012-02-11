@@ -1,7 +1,7 @@
 /// \file
 /// \brief Config software implementation.
 /// \author Anthony Jaguenaud
-/// \version v..
+/// \version v0.1.0
 ///
 /// This file implements the main Widget of the application.
 #include <ShareConfigWidget.h>
@@ -73,7 +73,7 @@ QWidget * ShareConfigWidget::createSystemWidget()
   systemInternalCommunicationBox->addItem(tr("Share memory"),Share::Communication::SHARE_MEM);
   systemInternalCommunicationBox->addItem(tr("Network"),Share::Communication::NETWORK);
   QSpinBox *systemInternalCommunicationPortBox = new QSpinBox();
-  systemInternalCommunicationPortBox->setDisabled(true);
+  //systemInternalCommunicationPortBox->setDisabled(true);
   systemInternalCommunicationPortBox->setMaximum(Share::CommunicationNetwork::s_maxPortNumber);
   systemInternalCommunicationPortBox->setMinimum(Share::CommunicationNetwork::s_minAdminPortNumber);
   systemInternalCommunicationPortBox->setValue(Share::CommunicationNetwork::s_defaultAdminPortNumber);
@@ -99,8 +99,6 @@ QWidget * ShareConfigWidget::createSystemWidget()
   
   QLabel *listenUserPortLabel = new QLabel(tr("External listen Port"));
   QSpinBox *listenUserPortNumber = new QSpinBox();
-  listenUserPortLabel->setDisabled(true);
-  listenUserPortNumber->setDisabled(true);
   listenUserPortNumber->setMaximum(Share::CommunicationNetwork::s_maxPortNumber);
   listenUserPortNumber->setMinimum(Share::CommunicationNetwork::s_minUserPortNumber);
   listenUserPortNumber->setValue(Share::CommunicationNetwork::s_defaultUserPortNumber);
@@ -147,8 +145,6 @@ QWidget * ShareConfigWidget::createSystemWidget()
   connect(listenUserPortNumber,SIGNAL(valueChanged(int)),this,SLOT(setSystemUserListenPort(int)));
   connect(userInternalCommunicationBox,SIGNAL(activated(int)),this,SLOT(setSystemUserCommunicationMode(int)));
   connect(userInternalCommunicationPortBox,SIGNAL(valueChanged(int)),this,SLOT(setSystemUserLocalListenPort(int)));
-  connect(this,SIGNAL(activateSystemUserListenPortBox(bool)),listenUserPortNumber,SLOT(setEnabled(bool)));
-  connect(this,SIGNAL(activateSystemUserListenPortBox(bool)),listenUserPortLabel,SLOT(setEnabled(bool)));
   connect(this,SIGNAL(activateSystemUserPortBox(bool)),userInternalCommunicationPortBox,SLOT(setEnabled(bool)));
   
   // Change interface via external changes.
@@ -186,11 +182,9 @@ QWidget * ShareConfigWidget::createUserWidget()
   
   QLabel *listenUserPortLabel = new QLabel(tr("External listen Port"));
   QSpinBox *listenUserPortNumber = new QSpinBox();
-  listenUserPortLabel->setDisabled(true);
   listenUserPortNumber->setMaximum(Share::CommunicationNetwork::s_maxPortNumber);
   listenUserPortNumber->setMinimum(Share::CommunicationNetwork::s_minUserPortNumber);
   listenUserPortNumber->setValue(Share::CommunicationNetwork::s_defaultUserPortNumber);
-  listenUserPortNumber->setDisabled(true);
   
   userInternalCommunicationBox->addItem(tr("Dbus"),Share::Communication::DBUS);
   userInternalCommunicationBox->addItem(tr("Share memory"),Share::Communication::SHARE_MEM);
@@ -229,8 +223,6 @@ QWidget * ShareConfigWidget::createUserWidget()
   connect(userInternalCommunicationBox,SIGNAL(activated(int)),this,SLOT(setUserUserCommunicationMode(int)));
   connect(userInternalCommunicationPortBox,SIGNAL(valueChanged(int)),this,SLOT(setUserUserLocalListenPort(int)));
   connect(this,SIGNAL(activateUserUserPortBox(bool)),userInternalCommunicationPortBox,SLOT(setEnabled(bool)));
-  connect(this,SIGNAL(activateUserUserListenPortBox(bool)),listenUserPortNumber,SLOT(setEnabled(bool)));
-  connect(this,SIGNAL(activateUserUserListenPortBox(bool)),listenUserPortLabel,SLOT(setEnabled(bool)));
   
   // Connect changes to Widget.
   connect(this,SIGNAL(changeUserUseSystemSettings(bool)),useSystemSettings,SLOT(setChecked(bool)));

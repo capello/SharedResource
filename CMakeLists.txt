@@ -4,7 +4,7 @@ PROJECT(ShareResource)
 FIND_PACKAGE(Qt4 REQUIRED)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} interface include)
 
-SET(CMAKE_CXX_FLAGS -std=c++0x)
+SET(CMAKE_CXX_FLAGS -g)
 
 SET(libShareResource_SOURCES sources/ShareResource.cpp 
                               sources/SharePeer.cpp

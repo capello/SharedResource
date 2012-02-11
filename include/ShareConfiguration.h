@@ -1,7 +1,7 @@
 /// \file
 /// \brief This Class is used to configure all.
 /// \author Anthony Jaguenaud
-/// \version v..
+/// \version v0.1.0
 ///
 
 #ifndef __SHARE_CONFIGURATION_H
@@ -20,13 +20,13 @@ namespace Share {
       struct 
       {
         bool useSystemDeamon;
-        bool useUserDeamon;
         struct
         {
           int externalListenPort;
           Communication::Type internalCommunicationType;
           int internalListenPort;
         } systemDeamon;
+        bool useUserDeamon;
         struct
         {
           bool externalCommunicationViaSystemDeamon;
@@ -44,6 +44,42 @@ namespace Share {
           int externalListenPort;
           Communication::Type internalCommunicationType;
           int internalListenPort;
+        } userDeamon;
+      } userConfig;
+    };
+    
+    struct ConfigNames
+    {
+      struct 
+      {
+        QString useSystemDeamon;
+        struct
+        {
+          QString name;
+          QString externalListenPort;
+          QString internalCommunicationType;
+          QString internalListenPort;
+        } systemDeamon;
+        QString useUserDeamon;
+        struct
+        {
+          QString name;
+          QString externalCommunicationViaSystemDeamon;
+          QString externalListenPort;
+          QString internalCommunicationType;
+          QString internalListenPort;
+        } userDeamon;
+      } systemConfig;
+      struct
+      {
+        QString useSystemConfig;
+        QString useUserDeamon;
+        struct
+        {
+          QString name;
+          QString externalListenPort;
+          QString internalCommunicationType;
+          QString internalListenPort;
         } userDeamon;
       } userConfig;
     };
@@ -114,7 +150,9 @@ namespace Share {
   private:
     static Configuration instance;
     static const Config defaultSettings;
-    QSettings settings;
+    static const QString organisationName;
+    static const QString applicationName;
+    static const ConfigNames configNames;
     Config currentSettings;
   };
   

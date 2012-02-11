@@ -1,7 +1,7 @@
 /// \file
 /// \brief Config software implementation.
 /// \author Anthony Jaguenaud
-/// \version v..
+/// \version v0.1.0
 ///
 /// This file implements the main window of configuration software for share library. This can be use for configure system or user configuration files.
 #include <ShareConfigMainWindow.h>
@@ -84,13 +84,19 @@ void ShareConfigMainWindow::closeEvent(QCloseEvent *event)
 void ShareConfigMainWindow::configSaved(bool p_isConfSaved)
 {
   qDebug() << "In:" << typeid(*this).name() << "::" << __func__;
-  statusBar()->showMessage(tr("Saved."));
+  if (p_isConfSaved)
+    statusBar()->showMessage(tr("Saved."));
+  else
+    statusBar()->showMessage(tr("Fail to save"));
 }
 
 void ShareConfigMainWindow::configLoaded(bool p_isConfLoaded)
 {
   qDebug() << "In:" << __func__;
-  statusBar()->showMessage(tr("Loaded."));
+  if (p_isConfLoaded)
+    statusBar()->showMessage(tr("Loaded."));
+  else
+    statusBar()->showMessage(tr("Fail to load"));
 }
 
 void ShareConfigMainWindow::startSaving()

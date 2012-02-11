@@ -1,7 +1,7 @@
 /// \file
 /// \brief Config software implementation.
 /// \author Anthony Jaguenaud
-/// \version v..
+/// \version v0.1.0
 ///
 /// This file implements the main Share::Configuration class.
 
@@ -11,59 +11,63 @@
 #define debugName qDebug() << "Conf:" << __func__
 
 
-#if 0
-const Share::Configuration::Config Share::Configuration::defaultSettings = {
-  .systemConfig = {
-    .useSystemDeamon = false,
-    .useUserDeamon = false,
-    .systemDeamon = {
-      .externalListenPort = Share::CommunicationNetwork::s_defaultAdminPortNumber,
-      .internalCommunicationType = Share::Communication::DBUS,
-      .internalListenPort = Share::CommunicationNetwork::s_defaultAdminPortNumber,
-    },
-    .userDeamon = {
-      .externalCommunicationViaSystemDeamon = false,
-      .externalListenPort = Share::CommunicationNetwork::s_defaultUserPortNumber,
-      .internalCommunicationType = Share::Communication::DBUS,
-      .internalListenPort = Share::CommunicationNetwork::s_defaultUserPortNumber,
-    },
-  },
-  .userConfig = {
-    .useSystemConfig = false,
-    .useUserDeamon = true,
-    .userDeamon = {
-      .externalListenPort = Share::CommunicationNetwork::s_defaultUserPortNumber,
-      .internalCommunicationType = Share::Communication::DBUS,
-      .internalListenPort = Share::CommunicationNetwork::s_defaultUserPortNumber,
-    },
-  },
-};
-#else
 #warning Not nominal configuration
 const Share::Configuration::Config Share::Configuration::defaultSettings = {
-  { false, false,
-    { Share::CommunicationNetwork::s_defaultAdminPortNumber+1,
-      Share::Communication::SHARE_MEM,
-      Share::CommunicationNetwork::s_defaultAdminPortNumber-1,
+  { false, 
+    { Share::CommunicationNetwork::s_defaultAdminPortNumber,
+      Share::Communication::DBUS,
+      Share::CommunicationNetwork::s_defaultAdminPortNumber,
     },
+    true,
     {
       false,
-      Share::CommunicationNetwork::s_defaultUserPortNumber+1,
-      Share::Communication::NETWORK,
-      Share::CommunicationNetwork::s_defaultUserPortNumber-1,
+      Share::CommunicationNetwork::s_defaultUserPortNumber,
+      Share::Communication::DBUS,
+      Share::CommunicationNetwork::s_defaultUserPortNumber,
     },
   },
   {
     false, true,
     {
-      Share::CommunicationNetwork::s_defaultUserPortNumber+2,
-      Share::Communication::SHARE_MEM,
-      Share::CommunicationNetwork::s_defaultUserPortNumber-2,
+      Share::CommunicationNetwork::s_defaultUserPortNumber,
+      Share::Communication::DBUS,
+      Share::CommunicationNetwork::s_defaultUserPortNumber,
     },
   },
 };
-#endif
 
+const Share::Configuration::ConfigNames Share::Configuration::configNames = {
+  {
+    QString("enableSystemDeamon"),
+    {
+      QString("systemDeamon"),
+      QString("externalListenPort"),
+      QString("internalCommunicationType"),
+      QString("internalListenPort"),
+    },
+    QString("enableUserDeamon"),
+    {
+      QString("userDeamon"),
+      QString("externalCommunicationViaSystemDeamon"),
+      QString("externalListenPort"),
+      QString("internalCommunicationType"),
+      QString("internalListenPort"),
+    }
+  },
+  {
+    QString("useSystemConfig"),
+    QString("enableUserDeamon"),
+    {
+      QString("userDeamon"),
+      QString("externalListenPort"),
+      QString("internalCommunicationType"),
+      QString("internalListenPort"),
+    },
+  },
+};
+
+const QString Share::Configuration::organisationName = "CapProject";
+const QString Share::Configuration::applicationName = "libShareResource";
 Share::Configuration Share::Configuration::instance;
 
 Share::Configuration::Configuration(QObject* parent)
@@ -82,9 +86,34 @@ Share::Configuration * Share::Configuration::getInstance()
 
 bool Share::Configuration::readConf()
 {
+  QSettings systemSettings(QSettings::SystemScope,organisationName,applicationName);
+  QSettings userSettings(QSettings::UserScope,organisationName,applicationName);
+  bool returnValue = false;
   qWarning()<< __func__ << " Not yet implemented\n";
-  signalConfig();
-  return true;
+    qDebug() << "Read systemConfig";
+    currentSettings.systemConfig.useSystemDeamon = systemSettings.value(configNames.systemConfig.useSystemDeamon).toBool();
+    systemSettings.beginGroup(configNames.systemConfig.systemDeamon.name);
+    currentSettings.systemConfig.systemDeamon.externalListenPort = systemSettings.value(configNames.systemConfig.systemDeamon.externalListenPort).toInt();
+    currentSettings.systemConfig.systemDeamon.internalCommunicationType = static_cast<Share::Communication::Type>(systemSettings.value(configNames.systemConfig.systemDeamon.internalCommunicationType).toInt());
+    currentSettings.systemConfig.systemDeamon.internalListenPort = systemSettings.value(configNames.systemConfig.systemDeamon.internalListenPort).toInt();
+    systemSettings.endGroup();
+    currentSettings.systemConfig.useUserDeamon = systemSettings.value(configNames.systemConfig.useUserDeamon).toBool();
+    systemSettings.beginGroup(configNames.systemConfig.userDeamon.name);
+    currentSettings.systemConfig.userDeamon.externalCommunicationViaSystemDeamon = systemSettings.value(configNames.systemConfig.userDeamon.externalCommunicationViaSystemDeamon).toInt();
+    currentSettings.systemConfig.userDeamon.externalListenPort = systemSettings.value(configNames.systemConfig.userDeamon.externalListenPort).toInt();
+    currentSettings.systemConfig.userDeamon.internalCommunicationType = static_cast<Share::Communication::Type> (systemSettings.value(configNames.systemConfig.userDeamon.internalCommunicationType).toInt());
+    currentSettings.systemConfig.userDeamon.internalListenPort = systemSettings.value(configNames.systemConfig.userDeamon.internalListenPort).toInt();
+    systemSettings.endGroup();
+    qDebug() << "Read userConfig.";
+    currentSettings.userConfig.useSystemConfig = userSettings.value(configNames.userConfig.useSystemConfig).toBool();
+    currentSettings.userConfig.useUserDeamon = userSettings.value(configNames.userConfig.useUserDeamon).toBool();
+    userSettings.beginGroup(configNames.userConfig.userDeamon.name);
+    currentSettings.userConfig.userDeamon.externalListenPort = userSettings.value(configNames.userConfig.userDeamon.externalListenPort).toInt();
+    currentSettings.userConfig.userDeamon.internalCommunicationType = static_cast<Share::Communication::Type> (userSettings.value(configNames.userConfig.userDeamon.internalCommunicationType).toInt());
+    currentSettings.userConfig.userDeamon.internalListenPort = userSettings.value(configNames.userConfig.userDeamon.internalListenPort).toInt();
+    userSettings.endGroup();
+    returnValue = true;
+  return returnValue;
 }
 
 bool Share::Configuration::readConf(QString & p_fileName)
@@ -97,8 +126,49 @@ bool Share::Configuration::readConf(QString & p_fileName)
 
 bool Share::Configuration::writeConf()
 {
+  QSettings systemSettings(QSettings::SystemScope,organisationName,applicationName);
+  QSettings userSettings(QSettings::UserScope,organisationName,applicationName);
+  bool returnValue = false;
   qWarning()<< __func__ << " Not yet implemented\n";
-  return true;
+  if (systemSettings.isWritable())
+  {
+    qDebug() << "Write systemConfig";
+    systemSettings.setValue(configNames.systemConfig.useSystemDeamon,currentSettings.systemConfig.useSystemDeamon);
+    systemSettings.beginGroup(configNames.systemConfig.systemDeamon.name);
+    systemSettings.setValue(configNames.systemConfig.systemDeamon.externalListenPort,currentSettings.systemConfig.systemDeamon.externalListenPort);
+    systemSettings.setValue(configNames.systemConfig.systemDeamon.internalCommunicationType,currentSettings.systemConfig.systemDeamon.internalCommunicationType);
+    systemSettings.setValue(configNames.systemConfig.systemDeamon.internalListenPort,currentSettings.systemConfig.systemDeamon.internalListenPort);
+    systemSettings.endGroup();
+    systemSettings.setValue(configNames.systemConfig.useUserDeamon,currentSettings.systemConfig.useUserDeamon);
+    systemSettings.beginGroup(configNames.systemConfig.userDeamon.name);
+    systemSettings.setValue(configNames.systemConfig.userDeamon.externalCommunicationViaSystemDeamon,currentSettings.systemConfig.userDeamon.externalCommunicationViaSystemDeamon);
+    systemSettings.setValue(configNames.systemConfig.userDeamon.externalListenPort,currentSettings.systemConfig.userDeamon.externalListenPort);
+    systemSettings.setValue(configNames.systemConfig.userDeamon.internalCommunicationType,currentSettings.systemConfig.userDeamon.internalCommunicationType);
+    systemSettings.setValue(configNames.systemConfig.userDeamon.internalListenPort,currentSettings.systemConfig.userDeamon.internalListenPort);
+    systemSettings.endGroup();
+    returnValue = true;
+  }
+  else
+  {
+    qDebug() << "Write systemConfig not allowed.";
+  }
+  if (userSettings.isWritable())
+  {
+    qDebug() << "Write userConfig.";
+    userSettings.setValue(configNames.userConfig.useSystemConfig,currentSettings.userConfig.useSystemConfig);
+    userSettings.setValue(configNames.userConfig.useUserDeamon,currentSettings.userConfig.useUserDeamon);
+    userSettings.beginGroup(configNames.userConfig.userDeamon.name);
+    userSettings.setValue(configNames.userConfig.userDeamon.externalListenPort,currentSettings.userConfig.userDeamon.externalListenPort);
+    userSettings.setValue(configNames.userConfig.userDeamon.internalCommunicationType,currentSettings.userConfig.userDeamon.internalCommunicationType);
+    userSettings.setValue(configNames.userConfig.userDeamon.internalListenPort,currentSettings.userConfig.userDeamon.internalListenPort);
+    userSettings.endGroup();
+    returnValue = true;
+  }
+  else
+  {
+    qDebug() << "Write userConfig not allowed.";
+  }
+  return returnValue;
 }
 
 bool  Share::Configuration::writeConf(QString & p_fileName)
@@ -240,6 +310,8 @@ void Share::Configuration::loadConfig()
 {
   bool isConfReaded;
   isConfReaded = readConf();
+  if (isConfReaded)
+    emit signalConfig();
   emit configLoaded(isConfReaded);
 }
 
