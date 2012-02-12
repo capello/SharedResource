@@ -11,15 +11,19 @@
 #define debugName qDebug() << "Conf:" << __func__
 
 
+const QString Share::Configuration::organisationName = "CapProject";
+const QString Share::Configuration::applicationName = "libShareResource";
 const Share::Configuration::Config Share::Configuration::defaultSettings = {
   /* .systemConfig */ { 
     { QString("enableSystemDeamon"),false }, 
+    { QString("systemCachePath"),QString("/var/cache/") + organisationName + QString("/") + applicationName },
     { QString("systemDeamon"), {
       { QString("externalListenPort"),Share::CommunicationNetwork::s_defaultAdminPortNumber },
       { QString("internalCommunicationType"),Share::Communication::DBUS },
       { QString("internalListenPort"),Share::CommunicationNetwork::s_defaultAdminPortNumber },
     } },
     { QString("enableUserDeamon"),true },
+    { QString("userCachePath"),QString("~/.local/share/") + organisationName + QString("/") + applicationName },
     { QString("userDeamon"),{
       { QString("externalCommunicationViaSystemDeamon"),false},
       { QString("externalListenPort"),Share::CommunicationNetwork::s_defaultUserPortNumber },
@@ -30,6 +34,7 @@ const Share::Configuration::Config Share::Configuration::defaultSettings = {
   /* .userConfig */ {
     { QString("useSystemConfig"),false }, 
     { QString("enableUserDeamon"),true },
+    { QString("userCachePath"),QString("~/.local/share/") + organisationName + QString("/") + applicationName },
     { QString("userDeamon"),{
       { QString("externalListenPort"),Share::CommunicationNetwork::s_defaultUserPortNumber },
       { QString("internalCommunicationType"),Share::Communication::DBUS },
@@ -38,8 +43,6 @@ const Share::Configuration::Config Share::Configuration::defaultSettings = {
   },
 };
 
-const QString Share::Configuration::organisationName = "CapProject";
-const QString Share::Configuration::applicationName = "libShareResource";
 Share::Configuration Share::Configuration::instance;
 
 Share::Configuration::Configuration(QObject* parent)
@@ -63,12 +66,14 @@ bool Share::Configuration::readConf()
   bool returnValue = false;
     qDebug() << "Read systemConfig";
     currentSettings.systemConfig.useSystemDeamon.value = systemSettings.value(currentSettings.systemConfig.useSystemDeamon.name).toBool();
+    currentSettings.systemConfig.userCachePath.value = systemSettings.value(currentSettings.systemConfig.userCachePath.name).toString();
     systemSettings.beginGroup(currentSettings.systemConfig.systemDeamon.name);
     currentSettings.systemConfig.systemDeamon.value.externalListenPort.value = systemSettings.value(currentSettings.systemConfig.systemDeamon.value.externalListenPort.name).toInt();
     currentSettings.systemConfig.systemDeamon.value.internalCommunicationType.value = static_cast<Share::Communication::Type>(systemSettings.value(currentSettings.systemConfig.systemDeamon.value.internalCommunicationType.name).toInt());
     currentSettings.systemConfig.systemDeamon.value.internalListenPort.value = systemSettings.value(currentSettings.systemConfig.systemDeamon.value.internalListenPort.name).toInt();
     systemSettings.endGroup();
     currentSettings.systemConfig.useUserDeamon.value = systemSettings.value(currentSettings.systemConfig.useUserDeamon.name).toBool();
+    currentSettings.systemConfig.userCachePath.value = systemSettings.value(currentSettings.systemConfig.userCachePath.name).toString();
     systemSettings.beginGroup(currentSettings.systemConfig.userDeamon.name);
     currentSettings.systemConfig.userDeamon.value.externalCommunicationViaSystemDeamon.value = systemSettings.value(currentSettings.systemConfig.userDeamon.value.externalCommunicationViaSystemDeamon.name).toInt();
     currentSettings.systemConfig.userDeamon.value.externalListenPort.value = systemSettings.value(currentSettings.systemConfig.userDeamon.value.externalListenPort.name).toInt();
@@ -78,6 +83,7 @@ bool Share::Configuration::readConf()
     qDebug() << "Read userConfig.";
     currentSettings.userConfig.useSystemConfig.value = userSettings.value(currentSettings.userConfig.useSystemConfig.name).toBool();
     currentSettings.userConfig.useUserDeamon.value = userSettings.value(currentSettings.userConfig.useUserDeamon.name).toBool();
+    currentSettings.userConfig.userCachePath.value = userSettings.value(currentSettings.userConfig.userCachePath.name).toString();
     userSettings.beginGroup(currentSettings.userConfig.userDeamon.name);
     currentSettings.userConfig.userDeamon.value.externalListenPort.value = userSettings.value(currentSettings.userConfig.userDeamon.value.externalListenPort.name).toInt();
     currentSettings.userConfig.userDeamon.value.internalCommunicationType.value = static_cast<Share::Communication::Type> (userSettings.value(currentSettings.userConfig.userDeamon.value.internalCommunicationType.name).toInt());
@@ -103,12 +109,14 @@ bool Share::Configuration::writeConf()
   {
     qDebug() << "Write systemConfig";
     systemSettings.setValue(currentSettings.systemConfig.useSystemDeamon.name,currentSettings.systemConfig.useSystemDeamon.value);
+    systemSettings.setValue(currentSettings.systemConfig.systemCachePath.name,currentSettings.systemConfig.systemCachePath.value);
     systemSettings.beginGroup(currentSettings.systemConfig.systemDeamon.name);
     systemSettings.setValue(currentSettings.systemConfig.systemDeamon.value.externalListenPort.name,currentSettings.systemConfig.systemDeamon.value.externalListenPort.value);
     systemSettings.setValue(currentSettings.systemConfig.systemDeamon.value.internalCommunicationType.name,currentSettings.systemConfig.systemDeamon.value.internalCommunicationType.value);
     systemSettings.setValue(currentSettings.systemConfig.systemDeamon.value.internalListenPort.name,currentSettings.systemConfig.systemDeamon.value.internalListenPort.value);
     systemSettings.endGroup();
     systemSettings.setValue(currentSettings.systemConfig.useUserDeamon.name,currentSettings.systemConfig.useUserDeamon.value);
+    systemSettings.setValue(currentSettings.systemConfig.userCachePath.name,currentSettings.systemConfig.userCachePath.value);
     systemSettings.beginGroup(currentSettings.systemConfig.userDeamon.name);
     systemSettings.setValue(currentSettings.systemConfig.userDeamon.value.externalCommunicationViaSystemDeamon.name,currentSettings.systemConfig.userDeamon.value.externalCommunicationViaSystemDeamon.value);
     systemSettings.setValue(currentSettings.systemConfig.userDeamon.value.externalListenPort.name,currentSettings.systemConfig.userDeamon.value.externalListenPort.value);
@@ -126,6 +134,7 @@ bool Share::Configuration::writeConf()
     qDebug() << "Write userConfig.";
     userSettings.setValue(currentSettings.userConfig.useSystemConfig.name,currentSettings.userConfig.useSystemConfig.value);
     userSettings.setValue(currentSettings.userConfig.useUserDeamon.name,currentSettings.userConfig.useUserDeamon.value);
+    userSettings.setValue(currentSettings.userConfig.userCachePath.name,currentSettings.userConfig.userCachePath.value);
     userSettings.beginGroup(currentSettings.userConfig.userDeamon.name);
     userSettings.setValue(currentSettings.userConfig.userDeamon.value.externalListenPort.name,currentSettings.userConfig.userDeamon.value.externalListenPort.value);
     userSettings.setValue(currentSettings.userConfig.userDeamon.value.internalCommunicationType.name,currentSettings.userConfig.userDeamon.value.internalCommunicationType.value);
@@ -274,6 +283,33 @@ void Share::Configuration::setUser_UserLocalListenPort(int p_listenPort)
   emit changeUser_UserLocalListenPort(p_listenPort);
 }
 
+void Share::Configuration::setUser_UserCachePath(QString p_localCache)
+{
+  debugName;
+  if (currentSettings.userConfig.userCachePath.value == p_localCache)
+    return;
+  currentSettings.userConfig.userCachePath.value = p_localCache;
+  emit changeUser_UserCachePath(p_localCache);
+}
+
+void Share::Configuration::setSystem_SystemCachePath(QString p_localCache)
+{
+  debugName;
+  if (currentSettings.systemConfig.systemCachePath.value == p_localCache)
+    return;
+  currentSettings.systemConfig.systemCachePath.value = p_localCache;
+  emit changeSystem_SystemCachePath(p_localCache);
+}
+
+void Share::Configuration::setSystem_UserCachePath(QString p_localCache)
+{
+  debugName;
+  if (currentSettings.systemConfig.userCachePath.value == p_localCache)
+    return;
+  currentSettings.systemConfig.userCachePath.value = p_localCache;
+  emit changeSystem_UserCachePath(p_localCache);
+}
+
   
 void Share::Configuration::loadConfig()
 {
@@ -329,4 +365,16 @@ void Share::Configuration::signalConfig()
   emit changeUser_UserDeamon(currentSettings.userConfig.useUserDeamon.value);
   emit changeUser_UserCommunicationMode(currentSettings.userConfig.userDeamon.value.internalCommunicationType.value);
   emit changeUser_UserLocalListenPort(currentSettings.userConfig.userDeamon.value.internalListenPort.value);
+}
+
+QString Share::Configuration::getCachePath()
+{
+  if (currentSettings.userConfig.useSystemConfig.value)
+    return currentSettings.systemConfig.userCachePath.value;
+  return currentSettings.userConfig.userCachePath.value;
+}
+
+QString Share::Configuration::getSystemCachePath()
+{
+  return currentSettings.systemConfig.systemCachePath.value;
 }

@@ -52,14 +52,17 @@ namespace Share {
       struct SystemConfig
       {
         PairValueName<bool> useSystemDeamon; ///< Use the system deamon to communicate with peers.
+        PairValueName<QString> systemCachePath; ///< System cache file path.
         PairValueName<SystemSystemDeamon> systemDeamon; ///< System deamon configuration.
         PairValueName<bool> useUserDeamon; ///< Use the user deamon to communicate.
+        PairValueName<QString> userCachePath; ///< User cache file path.
         PairValueName<SystemUserDeamon> userDeamon; ///< User deamon configuration.
       };
       struct UserConfig
       {
         PairValueName<bool> useSystemConfig; ///< The library or user deamon must use the system configuration. If this value is true, all other are not used.
         PairValueName<bool> useUserDeamon; ///< Use the local deamon.
+        PairValueName<QString> userCachePath; ///< User cache file path.
         PairValueName<UserUserDeamon> userDeamon; ///< User deamon configuration.
       };
       
@@ -95,6 +98,14 @@ namespace Share {
     /// \brief This method, send all signals like if all have been changed.
     void signalConfig();
     
+    /// \brief This method returns the local path cache.
+    /// \return \b QString: string containing the path to local cache.
+    QString getCachePath();
+    
+    /// \brief This methed returns the system cache path.
+    /// \return \b QString: string containing the path to system cache.
+    QString getSystemCachePath();
+    
   public slots:
     /// \brief Set the System deamon value of the system configuration file.
     /// \param[in] p_activated \li \b true: System deamon is activated.
@@ -129,6 +140,14 @@ namespace Share {
     /// \pre Only usefull when the internal communication type is Share::Communication::NETWORK.
     /// \param[in] p_listenPort The port to listen.
     void setSystem_UserLocalListenPort(int p_listenPort);
+    /// \brief Set the system cache path of the system configuration file.
+    /// \param[in] p_localCachePath The path to set.
+    void setSystem_SystemCachePath(QString p_localCachePath);
+    
+    /// \brief Set the system cache path of the system configuration file.
+    /// \param[in] p_localCachePath The path to set.
+    void setSystem_UserCachePath(QString p_localCachePath);
+    
     
     /// \brief Set the user flag which define if the process use the System configuration or an overwrite configuration.
     /// \param[in] p_activated \li \b true: Use the system configuration.
@@ -148,6 +167,11 @@ namespace Share {
     /// \pre Only usefull when the internal communication type is Share::Communication::NETWORK.
     /// \param[in] p_listenPort The port to listen.
     void setUser_UserLocalListenPort(int p_listenPort);
+    
+    /// \brief Set the user cache path of the user configuration file.
+    /// \param[in] p_localCachePath The path to set.
+    void setUser_UserCachePath(QString p_localCachePath);
+    
     
     /// \brief This slot resent all signals for change of all flags.
     void getConfig();
@@ -194,6 +218,10 @@ namespace Share {
     void changeSystem_UserCommunicationMode(Share::Communication::Type);
     /// \brief Signal a change of the local listen port of the user deamon in system settings.
     void changeSystem_UserLocalListenPort(int);
+    /// \brief Signal a change in the user cache of system settings.
+    void changeSystem_UserCachePath(QString p_localCachePath);
+    /// \brief Signal a change in the system cache of system settings.
+    void changeSystem_SystemCachePath(QString p_localCachePath);
     /// \brief Signal a change of the “use system settings“ in the user settings.
     void changeUser_UseSystemSettings(bool);
     /// \brief Signal a change of the user deamon flag of the user settings.
@@ -204,6 +232,8 @@ namespace Share {
     void changeUser_UserLocalListenPort(int);
     /// \brief Signal a change in local communication mode of the user deamon in user settings.
     void changeUser_UserCommunicationMode(Share::Communication::Type);
+    /// \brief Signal a change in the user cache of user settings.
+    void changeUser_UserCachePath(QString p_localCachePath);
     
   private:
     /// \brief Static instance of the configuration class.

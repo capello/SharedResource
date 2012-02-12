@@ -5,10 +5,12 @@
 ///
 /// The objective of this test is to create a share ressource with a simble text file.
 /// And then, show that cache as been correctly updated.
+/// \li First scenario is with local storage (no deamon launches) is direct saving file, no peers. (Use Resource_Disk)
+/// \li Second scenario is with local user deamon (no system deamon lanched) try communication with all possible protocols.
+/// \li Third scenario is with system deamon, try communication with all possible protocols.
 
 #include <iostream>
 #include "ShareResource.h"
-#include <ShareResourceId.h>
 
 void usage(char *p_name, std::ostream& p_stream = std::cout)
 {
@@ -17,17 +19,18 @@ void usage(char *p_name, std::ostream& p_stream = std::cout)
   p_stream << std::endl << "Return 0 if no error, else return 1." << std::endl;
 }
 
-Share::ResourceId shareFile(QFile &p_file)
+Share::Resource::Id shareFile(QFile &p_file, Share::Auth & p_auth)
 {
-  Share::ResourceId l_resourceId;
+  Share::Resource::Id l_resourceId;
   // Open file cannot fail.
   p_file.open(QIODevice::ReadOnly);
   QByteArray l_file_in_byte_array = p_file.readAll();
   p_file.close();
   std::cout << "File size: " << p_file.size() << ", bytearray size: " << l_file_in_byte_array.size() << std::endl;
-  Share::Resource l_resource(l_file_in_byte_array);
+  // Create Resource. It is directly push to ResourceStorage.
+  Share::Resource l_resource(l_file_in_byte_array,p_auth);
   
-  
+  l_resourceId = l_resource.getId();
   
   return l_resourceId;
 }
@@ -60,10 +63,10 @@ int main(int nargs, char *argv[])
     return 1;
   }
   
-  Share::Resource::Config l_resource_config;
-  l_resource_config.setUserStorage(true);
+  Share::Resource::Config::getInstance()->setLocalStorage(true);
   
-  Share::ResourceId l_id = shareFile(l_file);
+  Share::Auth l_auth;
+  Share::Resource::Id l_id = shareFile(l_file,l_auth);
   
   //md5Resource();
   

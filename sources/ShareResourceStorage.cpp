@@ -5,6 +5,7 @@
 ///
 /// This file implements the Resource storage class witch is the interface class.
 #include <ShareResourceStorage.h>
+#include <ShareConfiguration.h>
 
 namespace Share
 {

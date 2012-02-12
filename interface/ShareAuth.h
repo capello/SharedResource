@@ -20,8 +20,13 @@ namespace Share {
     /// \brief Destructor.
     virtual ~Auth();
     
-  private:
+    bool operator == (Auth &p_auth);
     
+    static Auth Undefine;
+  private:
+    // \FIXME Bad code. 
+    static int auth_number;
+    int auth;
   };
 };
 

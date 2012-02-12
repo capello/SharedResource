@@ -12,6 +12,7 @@
 #define __SHARE_RESSOURCE_STORAGE_UNIT_H
 
 #include <qfile.h>
+#include <ShareResource.h>
 
 namespace Share
 {
@@ -29,8 +30,8 @@ namespace Share
     bool isSafe();
     
     /// \brief Return resource id.
-    /// \return The resource id of the resource whitch this is a part.
-    ResourceId getResourceId();
+    /// \return The resource id of the resource which this is a part.
+    Resource::Id getResourceId();
     
     /// \brief Return the part number.
     /// \return Return the number of the part of the resource.

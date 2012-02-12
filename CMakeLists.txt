@@ -9,7 +9,6 @@ SET(CMAKE_CXX_FLAGS -g)
 SET(libShareResource_SOURCES sources/ShareResource.cpp 
                               sources/SharePeer.cpp
                               sources/ShareAuth.cpp
-                              sources/ShareResourceId.cpp
                               sources/ShareResourceStorage.cpp
                               sources/ShareCommunicationNetwork.cpp
                               sources/ShareConfiguration.cpp)

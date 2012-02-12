@@ -19,7 +19,7 @@ namespace Share
   ///
   /// This class defines the storage. This means, mode of storage, 
   /// parameters for storage (storage method, sizes available)
-  class ResourceStorage
+    class ResourceStorage
   {
   public:
     /// \brief Constructor.
@@ -35,6 +35,7 @@ namespace Share
     /// Deamons can communicate by network or local communication to share informations.
     enum StorageMethod
     {
+      LOCAL_CACHE, ///< The storage is done by library saving into a directory.
       SYSTEM_DEAMON, ///< The storage is done sending data to a system deamon which store data on disk
       USER_DEAMON, ///< The storage is done in user disk space, all instance of library use the same local deamon.
                    ///< If no user deamon started, the library start one.
@@ -42,7 +43,7 @@ namespace Share
     };
     
     
-    /// \pre DISK mode. Else call is ignore and nothing change.
+    /// \pre LOCAL_CACHE mode. Else call is ignore and nothing change.
     /// \param[in] p_path path to use to store cache files.
     /// \return false if path could not be set.
     ///         true in others cases.
@@ -62,14 +63,19 @@ namespace Share
     /// \return Storage method in used
     static StorageMethod getStorageMethod();
     
+    /// \brief Get an instance of a Share::ResourceStorage class in function of configuration.
+    /// 
+    /// This static function returns an instance of a derived class of ResourceStorage.
+    static ResourceStorage * getAnInstance();
+    
     /// \brief Set cache size.
-    /// \pre DISK mode.
+    /// \pre LOCAL_CACHE mode.
     /// \param[in] p_size the size allocated to disk cache.
     ///
     /// This function set the cache size if storage mode is DISK otherwise do nothing.
     static void setCacheSize(qint64 p_size);
     /// \brief Get cache free size.
-    /// \pre DISK mode.
+    /// \pre LOCAL_CACHE mode.
     /// \return Return the size in byte of the free cache.
     ///
     /// This function returns the free cache size. If \b precondition does not match, return must be ignored.
@@ -90,6 +96,7 @@ namespace Share
     static qint64 s_cacheFree;
     static qint64 s_unitSize;
     static StorageMethod s_storage_method; 
+    static QString s_cacheDirectory;
   };
 };
 #endif

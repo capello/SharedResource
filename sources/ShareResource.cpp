@@ -7,32 +7,55 @@
 
 #include <ShareResource.h>
 #include <iostream>
+#include <ShareConfiguration.h>
 
 namespace Share
 {
+  Resource::Config Resource::Config::instance;
+  
   Resource::Resource()
   {
     std::cout << "const\n";
   }
   
-  Resource::Resource(QByteArray &p_resource)
+  Resource::Resource(QByteArray &p_resource,Auth &p_owner)
   {
+    // Get the resource storage.
+    resource = ResourceStorage::getAnInstance();
+    
+    resource->setStorageMethod(Config::getInstance()->getStorageMethod());
+      
     
     std::cout << "Const avec param\n";
   }
   
+  Resource::Resource(Id p_resourceId)
+  {
+    qDebug() << "Construct resource by Id";
+  }
+  
   Resource::~Resource()
   {
+    
     std::cout << "Dest\n";
   }
   
+  
+  Resource::Id Resource::getId()
+  {
+    return resourceId;
+  }
+  
+  /////////////////////////////////////////////////////////
+  // Config Part
+  /////////////////////////////////////////////////////////
   Resource::Config::Config()
   {
-    if (!loadConfigFile())
+    isAdminMode = false;
+    if (!Configuration::getInstance()->readConf())
     {
-      canManuallyModify = true;
       // Load config file failed.
-      setUserStorage(true);
+      setLocalStorage(true);
     }
   }
   
@@ -40,14 +63,48 @@ namespace Share
   {
   }
   
-  bool Resource::Config::isUserStorage() const
+  bool Resource::Config::isLocalStorage() const
   {
-    return storageMethod.getStorageMethod();
+    return storageMethod == ResourceStorage::LOCAL_CACHE;
   }
   
-  void Resource::Config::setUserStorage(bool p_isUserMethod)
+  void Resource::Config::setLocalStorage(bool p_isUserMethod)
   {
-    std::cerr << "<" << __func__ << "> not yet implemented\n";
+    if (p_isUserMethod)
+      storageMethod = ResourceStorage::LOCAL_CACHE;
+    else
+    {
+      // Search in Configuration the good storage method.
+      //Configuration::getInstance()->getUserConfig()->getUseSystemConfig();
+      Configuration *l_conf = Configuration::getInstance();
+      if (isAdminMode)
+      {
+        storageMethod = static_cast<ResourceStorage::StorageMethod> (l_conf->getSystem_SystemCommunicationMode());
+      }
+      else
+      {
+        if (l_conf->getUser_UseSystemConfig())
+        {
+          storageMethod = static_cast<ResourceStorage::StorageMethod> (l_conf->getSystem_UserCommunicationMode());
+        }
+        else
+        {
+          storageMethod = static_cast<ResourceStorage::StorageMethod> (l_conf->getUser_UserCommunicationMode());
+        }
+      }
+      std::cerr << "<" << __func__ << "> not yet implemented\n";
+    }
+  }
+  
+  ResourceStorage::StorageMethod Resource::Config::getStorageMethod()
+  {
+    return storageMethod;
+  }
+  
+  
+  Resource::Config *Resource::Config::getInstance()
+  {
+    return &instance;
   }
   
   /// \TODO To implements. if load is true, set manual Modified to false.
@@ -61,4 +118,16 @@ namespace Share
   {
     return false;
   }
+  
+  //////////////////////////////////////////////////////////////////////
+  /////// Resource Id part
+  //////////////////////////////////////////////////////////////////////
+  Resource::Id::Id()
+  {
+  }
+  
+  Resource::Id::~Id()
+  {
+  }
+  
 }
