@@ -17,8 +17,9 @@
 /// \brief Namespace for Share library
 namespace Share {
   /// \brief Share resource object.
-  class Resource
+  class Resource:public QObject
   {
+    Q_OBJECT
   public:
     /// \brief Version of resource class
     /// This class is used to know wich version of a resource it is. And then upgrade the resource when a 
@@ -172,6 +173,10 @@ namespace Share {
     /// \param[in] p_canModify Set to \b true to authorized viewer to modify this resource. (default: \b false)
     void addViewer(Auth &p_viewer, bool p_canModify = false);
     
+  signals:
+    /// \brief Signal resource state changes.
+    /// \param[in] p_newState The new resource state.
+    void changeState(State p_newState);
     
   private:
     ResourceStorage *resource;

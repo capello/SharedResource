@@ -155,6 +155,27 @@ bool  Share::Configuration::writeConf(QString & p_fileName)
   return true;
 }
 
+Share::Communication::Type Share::Configuration::getSystem_SystemCommunicationMode()
+{
+  return currentSettings.systemConfig.systemDeamon.value.internalCommunicationType.value;
+}
+
+    
+bool Share::Configuration::getUser_UseSystemConfig()
+{
+  return currentSettings.userConfig.useSystemConfig.value;
+}  
+
+Share::Communication::Type Share::Configuration::getSystem_UserCommunicationMode()
+{
+  return currentSettings.systemConfig.userDeamon.value.internalCommunicationType.value;
+}
+    
+Share::Communication::Type Share::Configuration::getUser_UserCommunicationMode()
+{
+  return currentSettings.userConfig.userDeamon.value.internalCommunicationType.value;
+}
+    
 
 void Share::Configuration::setSystem_SystemDeamon(bool p_activated)
 {

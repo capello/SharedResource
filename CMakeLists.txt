@@ -2,25 +2,26 @@ cmake_minimum_required(VERSION 2.8)
 
 PROJECT(ShareResource)
 FIND_PACKAGE(Qt4 REQUIRED)
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} interface include)
 
 SET(CMAKE_CXX_FLAGS -g)
-
-SET(libShareResource_SOURCES sources/ShareResource.cpp 
+SET(QCA_INCLUDES /usr/include/qca2/QtCrypto/)
+SET(libShareResource_SOURCES sources/ShareResource.cpp
                               sources/SharePeer.cpp
                               sources/ShareAuth.cpp
                               sources/ShareResourceStorage.cpp
                               sources/ShareCommunicationNetwork.cpp
                               sources/ShareConfiguration.cpp)
-SET(libShareResource_HEADERS include/ShareConfiguration.h)
-   
+SET(libShareResource_HEADERS include/ShareConfiguration.h
+                             interface/ShareResource.h)
+
 QT4_WRAP_CPP(libShareResource_HEADERS_MOC ${libShareResource_HEADERS})
 
-INCLUDE(${QT_USE_FILE} )
+INCLUDE(${QT_USE_FILE})
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} interface include ${QCA_INCLUDES})
 
 ADD_DEFINITIONS(${QT_DEFINITIONS})
 
-ADD_LIBRARY(libShareResource SHARED ${libShareResource_SOURCES} 
+ADD_LIBRARY(libShareResource SHARED ${libShareResource_SOURCES}
   ${libShareResource_HEADERS_MOC})
 
 TARGET_LINK_LIBRARIES(libShareResource ${QT_LIBRARIES})

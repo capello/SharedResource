@@ -102,9 +102,26 @@ namespace Share {
     /// \return \b QString: string containing the path to local cache.
     QString getCachePath();
     
-    /// \brief This methed returns the system cache path.
+    /// \brief This method returns the system cache path.
     /// \return \b QString: string containing the path to system cache.
     QString getSystemCachePath();
+    
+    /// \brief This method get the system communication mode of system settings.
+    /// \return \b Share::Communication::Type type of current communication.
+    Share::Communication::Type getSystem_SystemCommunicationMode();
+    
+    /// \brief This method get the “use” system config flag of user settings.
+    /// \return \b bool the flag.
+    bool getUser_UseSystemConfig();
+    
+    /// \brief This method get the user communication mode of system settings.
+    /// \return \b Share::Communication::Type type of current communication.
+    Share::Communication::Type getSystem_UserCommunicationMode();
+    
+    /// \brief This method get the user communication mode of user settings.
+    /// \return \b Share::Communication::Type type of current communication.
+    Share::Communication::Type getUser_UserCommunicationMode();
+    
     
   public slots:
     /// \brief Set the System deamon value of the system configuration file.

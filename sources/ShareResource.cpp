@@ -24,7 +24,10 @@ namespace Share
     resource = ResourceStorage::getAnInstance();
     
     resource->setStorageMethod(Config::getInstance()->getStorageMethod());
-      
+    
+    resource->store(p_resource);
+    
+    resource->setOwner(p_owner);
     
     std::cout << "Const avec param\n";
   }
