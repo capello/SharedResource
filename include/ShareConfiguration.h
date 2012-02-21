@@ -13,7 +13,7 @@
 namespace Share {
   /// \brief Configuration class.
   /// The configuration is separate into two parts:
-  /// \li \b System: the system part configured by the computer administrator. 
+  /// \li \b System: the system part configured by the computer administrator.
   /// Contains use of a system deamon, and a user configuration part.
   /// \li \b User: the user part configured by user can overwrite the system configuration for the user part.
   class Configuration:public QObject
@@ -26,7 +26,7 @@ namespace Share {
       QString name; ///< Name of the field.
       T value; ///< Value of the field.
     };
-    
+
     /// \brief Internal structure for store current settings.
     struct Config
     {
@@ -42,7 +42,7 @@ namespace Share {
         PairValueName<int> externalListenPort; ///< If user deamon do not connect to external peers through system deamon, set the network port to use.
         PairValueName<Communication::Type> internalCommunicationType; ///< How the library have to connect to the user deamon.
         PairValueName<int> internalListenPort; ///< If the internal communication mode is NETWORK, the user deamon listen this port for communication.
-      }; 
+      };
       struct UserUserDeamon
       {
         PairValueName<int> externalListenPort; ///< If there is no system deamon, the user deamon listen on this port.
@@ -53,9 +53,11 @@ namespace Share {
       {
         PairValueName<bool> useSystemDeamon; ///< Use the system deamon to communicate with peers.
         PairValueName<QString> systemCachePath; ///< System cache file path.
+        PairValueName<int> systemCacheQuota;    ///< Max size allowed for cache.
         PairValueName<SystemSystemDeamon> systemDeamon; ///< System deamon configuration.
         PairValueName<bool> useUserDeamon; ///< Use the user deamon to communicate.
         PairValueName<QString> userCachePath; ///< User cache file path.
+        PairValueName<int> userCacheQuota;    ///< Max size allowed for cache.
         PairValueName<SystemUserDeamon> userDeamon; ///< User deamon configuration.
       };
       struct UserConfig
@@ -63,66 +65,67 @@ namespace Share {
         PairValueName<bool> useSystemConfig; ///< The library or user deamon must use the system configuration. If this value is true, all other are not used.
         PairValueName<bool> useUserDeamon; ///< Use the local deamon.
         PairValueName<QString> userCachePath; ///< User cache file path.
+        PairValueName<int> userCacheQuota;    ///< Max size allowed for cache.
         PairValueName<UserUserDeamon> userDeamon; ///< User deamon configuration.
       };
-      
+
       SystemConfig systemConfig; ///< System part of the configuration.
       UserConfig userConfig; ///< User part of the configuration.
     };
-    
+
   private:
     /// \brief Constructor
     Configuration(QObject * parent = 0);
-    
+
     /// \brief Destructor
     ~Configuration();
-    
+
   public:
     /// \brief Get the uniq instance of the class.
     static Configuration *getInstance();
-    
+
     /// \brief Read the config from standard config files
     bool readConf();
-    
+
     /// \brief Read the config from a user file.
     /// \param[in] p_fileName File name of the file to load.
     bool readConf(QString & p_fileName);
-    
+
     /// \brief Write the config to standard config files
     bool writeConf();
-    
+
     /// \brief Write the config to a user file.
     /// \param[in] p_fileName File name of the file where save config.
     bool writeConf(QString & p_fileName);
-    
+
     /// \brief This method, send all signals like if all have been changed.
     void signalConfig();
-    
+
     /// \brief This method returns the local path cache.
     /// \return \b QString: string containing the path to local cache.
     QString getCachePath();
-    
+
     /// \brief This method returns the system cache path.
     /// \return \b QString: string containing the path to system cache.
     QString getSystemCachePath();
-    
+
     /// \brief This method get the system communication mode of system settings.
     /// \return \b Share::Communication::Type type of current communication.
     Share::Communication::Type getSystem_SystemCommunicationMode();
-    
+
     /// \brief This method get the “use” system config flag of user settings.
     /// \return \b bool the flag.
     bool getUser_UseSystemConfig();
-    
+
     /// \brief This method get the user communication mode of system settings.
     /// \return \b Share::Communication::Type type of current communication.
     Share::Communication::Type getSystem_UserCommunicationMode();
-    
+
     /// \brief This method get the user communication mode of user settings.
     /// \return \b Share::Communication::Type type of current communication.
     Share::Communication::Type getUser_UserCommunicationMode();
-    
-    
+
+
   public slots:
     /// \brief Set the System deamon value of the system configuration file.
     /// \param[in] p_activated \li \b true: System deamon is activated.
@@ -142,6 +145,13 @@ namespace Share {
     /// \pre Only usefull when the internal communication type is Share::Communication::NETWORK.
     /// \param[in] p_listenPort The port to listen.
     void setSystem_SystemLocalListenPort(int p_listenPort);
+    /// \brief Set the system cache path of the system configuration file.
+    /// \param[in] p_localCachePath The path to set.
+    void setSystem_SystemCachePath(QString p_localCachePath);
+    /// \brief Set the system cache size of the system configuration file,
+    /// \param[in] p_maxSize Max size of local cache.
+    void setSystem_SystemCacheQuota(int p_maxSize);
+
     /// \brief Set the user deamon external listen port of the system configuration file.
     /// \pre This value is usefull if the flag “user comm via system deamon” is false.
     /// \param[in] p_listenPort The port to listen.
@@ -159,13 +169,12 @@ namespace Share {
     void setSystem_UserLocalListenPort(int p_listenPort);
     /// \brief Set the system cache path of the system configuration file.
     /// \param[in] p_localCachePath The path to set.
-    void setSystem_SystemCachePath(QString p_localCachePath);
-    
-    /// \brief Set the system cache path of the system configuration file.
-    /// \param[in] p_localCachePath The path to set.
     void setSystem_UserCachePath(QString p_localCachePath);
-    
-    
+    /// \brief Set the user cache size of the system configuration file,
+    /// \param[in] p_maxSize Max size of local cache.
+    void setSystem_UserCacheQuota(int p_maxSize);
+
+
     /// \brief Set the user flag which define if the process use the System configuration or an overwrite configuration.
     /// \param[in] p_activated \li \b true: Use the system configuration.
     ///                        \li \b false: Use the user configuration.
@@ -184,18 +193,20 @@ namespace Share {
     /// \pre Only usefull when the internal communication type is Share::Communication::NETWORK.
     /// \param[in] p_listenPort The port to listen.
     void setUser_UserLocalListenPort(int p_listenPort);
-    
     /// \brief Set the user cache path of the user configuration file.
     /// \param[in] p_localCachePath The path to set.
     void setUser_UserCachePath(QString p_localCachePath);
-    
-    
+    /// \brief Set the user cache size of the user configuration file,
+    /// \param[in] p_maxSize Max size of local cache.
+    void setUser_UserCacheQuota(int p_maxSize);
+
+
     /// \brief This slot resent all signals for change of all flags.
     void getConfig();
 
-    /// \brief This slot requests to load configuration 
+    /// \brief This slot requests to load configuration
     void loadConfig();
-    
+
     /// \brief This slot requests to save configuration
     void saveConfig();
 
@@ -205,8 +216,8 @@ namespace Share {
     /// \brief This slot requests to save configuration to a file.
     /// \param[in] p_fileName File into save.
     void saveFile(QString & p_fileName);
-    
-    
+
+
   signals:
     /// \brief Signal config has been loaded.
     /// \param[in] p_isLoaded \li \b true: load succesfull.
@@ -216,7 +227,7 @@ namespace Share {
     /// \param[in] p_isLoaded \li \b true: save succesfull.
     ///                       \li \b false: save fail.
     void configSaved(bool);
-    
+
     /// \brief Signal a change of the system deamon flag of the system settings.
     void changeSystem_SystemDeamon(bool);
     /// \brief Signal a change of the user deamon flag of the system settings.
@@ -227,6 +238,11 @@ namespace Share {
     void changeSystem_SystemCommunicationMode(Share::Communication::Type);
     /// \brief Signal a change of the local listen port of the system deamon in system settings.
     void changeSystem_SystemLocalListenPort(int);
+    /// \brief Signal a change in the system cache path of system settings.
+    void changeSystem_SystemCachePath(QString p_localCachePath);
+    /// \brief Signal a change in the system cache quota of system settings.
+    void changeSystem_SystemCacheQuota(int);
+
     /// \brief Signal a change of the external listen port use by the user deamon in system settings.
     void changeSystem_UserListenPort(int);
     /// \brief Signal a change of the flag defining if system deamon have to be used in system settings.
@@ -235,10 +251,11 @@ namespace Share {
     void changeSystem_UserCommunicationMode(Share::Communication::Type);
     /// \brief Signal a change of the local listen port of the user deamon in system settings.
     void changeSystem_UserLocalListenPort(int);
-    /// \brief Signal a change in the user cache of system settings.
+    /// \brief Signal a change in the user cache path of system settings.
     void changeSystem_UserCachePath(QString p_localCachePath);
-    /// \brief Signal a change in the system cache of system settings.
-    void changeSystem_SystemCachePath(QString p_localCachePath);
+    /// \brief Signal a change in the user cache quota of system settings.
+    void changeSystem_UserCacheQuota(int);
+
     /// \brief Signal a change of the “use system settings“ in the user settings.
     void changeUser_UseSystemSettings(bool);
     /// \brief Signal a change of the user deamon flag of the user settings.
@@ -249,9 +266,11 @@ namespace Share {
     void changeUser_UserLocalListenPort(int);
     /// \brief Signal a change in local communication mode of the user deamon in user settings.
     void changeUser_UserCommunicationMode(Share::Communication::Type);
-    /// \brief Signal a change in the user cache of user settings.
+    /// \brief Signal a change in the user cache path of user settings.
     void changeUser_UserCachePath(QString p_localCachePath);
-    
+    /// \brief Signal a change in the user cache quota of user settings.
+    void changeUser_UserCacheQuota(int);
+
   private:
     /// \brief Static instance of the configuration class.
     static Configuration instance;
@@ -264,7 +283,7 @@ namespace Share {
     /// \brief The current settings.
     Config currentSettings;
   };
-  
+
 };
 
 #endif
