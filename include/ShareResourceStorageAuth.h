@@ -21,11 +21,12 @@ namespace Share
   class ResourceStorageAuth
   {
   public:
+    /// \brief Rights that process using the library have on the resource.
     struct Rights
     {
-      bool isOwner;
-      bool canWrite;
-      bool canRead;
+      bool isOwner; ///< \b true: is the owner of resource.
+      bool canWrite;///< \b true: can modify the resource.
+      bool canRead; ///< \b true: can read containt of the resource.
     };
 
   public:
@@ -36,7 +37,7 @@ namespace Share
 
     /// \brief Associate the storage unit to use
     /// \param[in] p_storageUnit the storage unit to add to “Meta” storage.
-    void set(ResourceStorageUnit &p_storageUnit);
+    void add(ResourceStorageUnit &p_storageUnit);
 
     /// \brief Flush informations to Resource Unit
     void flush();

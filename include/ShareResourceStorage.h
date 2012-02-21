@@ -40,6 +40,7 @@ namespace Share
     /// Deamons can communicate by network or local communication to share informations.
     enum StorageMethod
     {
+      UNKNOWN, ///< Not yet defined.
       LOCAL_CACHE, ///< The storage is done by library saving into a directory.
       SYSTEM_DEAMON, ///< The storage is done sending data to a system deamon which store data on disk
       USER_DEAMON, ///< The storage is done in user disk space, all instance of library use the same local deamon.
@@ -79,6 +80,7 @@ namespace Share
     ///
     /// This function set the cache size if storage mode is DISK otherwise do nothing.
     static void setCacheSize(qint64 p_size);
+
     /// \brief Get cache free size.
     /// \pre LOCAL_CACHE mode.
     /// \return Return the size in byte of the free cache.
@@ -89,6 +91,7 @@ namespace Share
     /// \brief Stores a resource.
     /// \param[in] p_resource The resource to share.
     /// This method store the resource into one or more Share::StorageUnit.
+    /// All resource will be rewrite. If this is new resource, Id will be created.
     void store(QByteArray &p_resource);
 
     /// \brief Gets a resource.
@@ -98,16 +101,25 @@ namespace Share
 
     /// \brief SetOwner of a resource.
     /// \param[in] p_auth Auth parameter.
-    void setOwner(Share::Auth p_auth);
+    void setOwner(Share::Auth& p_auth);
+
+    /// \brief Set public the resource.
+    /// \param[in] p_setPublic \li \b true: Set the resource public.
+    ///                        \li \b false: Set the resource private. A resource can be private only if the
+    ///                        owner is set.
+    void setPublic(bool p_setPublic);
 
   private:
-    QList<ResourceStorageUnit> m_units;
+    /// \brief Add new storage unit to this storage unit.
+    qint64 newStorageUnit();
+
+  private:
+    QList<ResourceStorageUnit *> m_units;
     ResourceStorageAuth m_meta;
-    static qint64 s_cacheSize;
-    static qint64 s_cacheUsed;
-    static qint64 s_cacheFree;
+    static const qint64 s_defaultUnitSize;
+    static const StorageMethod s_defaultStorageMethod;
     static qint64 s_unitSize;
-    static StorageMethod s_storage_method;
+    static StorageMethod s_storageMethod;
     static QString s_cacheDirectory;
     static QList<ResourceStorage *> s_listOfinstances;
   };
