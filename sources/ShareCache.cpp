@@ -31,5 +31,13 @@ Share::Cache & Share::Cache::getInstance()
 void Share::Cache::refresh()
 {
   WHERE;
+  m_cacheFree = 2 * 1024 * 1024 * 1024;
   NOT_IMPLEMENTED;
+}
+
+qint64 Share::Cache::getFreeSpace()
+{
+  if (m_hasChanged)
+    refresh();
+  return m_cacheFree;
 }

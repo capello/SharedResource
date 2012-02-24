@@ -8,6 +8,7 @@
 #include "ShareConfiguration.h"
 #include <ShareCommunicationNetwork.h>
 #include <ShareDebug.h>
+#include <QtCore>
 
 
 #define debugName WHERE
@@ -340,10 +341,20 @@ void Share::Configuration::setUser_UserLocalListenPort(int p_listenPort)
 void Share::Configuration::setUser_UserCachePath(QString p_localCache)
 {
   debugName;
+  bool l_isRelativeToHome = false;
   if (currentSettings.userConfig.userCachePath.value == p_localCache)
     return;
+  // If path is home relative, remove the home part.
+  if (p_localCache.indexOf(QDir::homePath()) == 0)
+  {
+    p_localCache.replace(0,QDir::homePath().length()+1,"");
+    l_isRelativeToHome = true;
+  }
   currentSettings.userConfig.userCachePath.value = p_localCache;
-  emit changeUser_UserCachePath(p_localCache);
+  if (l_isRelativeToHome)
+    emit changeUser_UserCachePath(QDir::homePath() + QString("/") + p_localCache);
+  else
+    emit changeUser_UserCachePath(p_localCache);
 }
 
 void Share::Configuration::setSystem_SystemCachePath(QString p_localCache)
@@ -358,10 +369,20 @@ void Share::Configuration::setSystem_SystemCachePath(QString p_localCache)
 void Share::Configuration::setSystem_UserCachePath(QString p_localCache)
 {
   debugName;
+  bool l_isRelativeToHome = false;
   if (currentSettings.systemConfig.userCachePath.value == p_localCache)
     return;
+  // If path is home relative, remove the home part.
+  if (p_localCache.indexOf(QDir::homePath()) == 0)
+  {
+    p_localCache.replace(0,QDir::homePath().length()+1,"");
+    l_isRelativeToHome = true;
+  }
   currentSettings.systemConfig.userCachePath.value = p_localCache;
-  emit changeSystem_UserCachePath(p_localCache);
+  if (l_isRelativeToHome)
+    emit changeSystem_UserCachePath(QDir::homePath() + QString("/") + p_localCache);
+  else
+    emit changeSystem_UserCachePath(p_localCache);
 }
 
 void Share::Configuration::setUser_UserCacheQuota(int p_maxSize)
@@ -439,9 +460,15 @@ void Share::Configuration::signalConfig()
 
 QString Share::Configuration::getCachePath()
 {
+  QString l_path;
   if (currentSettings.userConfig.useSystemConfig.value)
-    return currentSettings.systemConfig.userCachePath.value;
-  return currentSettings.userConfig.userCachePath.value;
+    l_path = currentSettings.systemConfig.userCachePath.value;
+  l_path = currentSettings.userConfig.userCachePath.value;
+  QDir l_dir(l_path);
+  // If is a relative path, add home path.
+  if (!l_dir.isAbsolute())
+    l_path = QDir::homePath() + QString("/") + l_path;
+  return l_path;
 }
 
 QString Share::Configuration::getSystemCachePath()

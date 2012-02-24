@@ -17,7 +17,8 @@ SET(libShareResource_SOURCES sources/ShareResource.cpp
                               sources/ShareResourceStorageUnit.cpp
                               sources/ShareResourceStorageUnitLocalCache.cpp
                               sources/ShareResourceStorageUnitCommunication.cpp
-                              sources/ShareDebug.cpp)
+                              sources/ShareDebug.cpp
+                              sources/ShareCache.cpp)
 SET(libShareResource_HEADERS include/ShareConfiguration.h
                              interface/ShareResource.h)
 

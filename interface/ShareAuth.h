@@ -2,7 +2,7 @@
 /// \brief This file declares ShareAuth class.
 /// \author Anthony Jaguenaud
 /// \version v0.1.0
-/// 
+///
 /// ShareAuth is a authentification class.
 /// The class default class is a "yes" class. That mean, the class reply every time that authentification is good.
 /// If you want your own class, you should derived this class.
@@ -19,12 +19,12 @@ namespace Share {
     Auth();
     /// \brief Destructor.
     virtual ~Auth();
-    
+
     bool operator == (Auth &p_auth);
-    
+
     static Auth Undefine;
   private:
-    // \FIXME Bad code. 
+    // \FIXME Bad code.
     static int auth_number;
     int auth;
   };

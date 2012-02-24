@@ -109,6 +109,21 @@ namespace Share
     ///                        owner is set.
     void setPublic(bool p_setPublic);
 
+    /// \brief Set the resource encrypted.
+    /// \param[in] p_setEncrypted \li \b true: The resource will be encrypted.
+    ///                           \li \b false: The resource will not be encrypted.
+    void setEncrypted(bool p_setEncrypted);
+
+    /// \brief Get public resource flag.
+    /// \return \li \b true: The resource is public.
+    ///         \li \b false: The resource is private.
+    bool getPublic();
+
+    /// \brief Get incrypted resource flag.
+    /// \return \li \b true: The resource is encrypted.
+    ///         \li \b false: The resource is encrypted.
+    bool getEncrypted();
+
   private:
     /// \brief Add new storage unit to this storage unit.
     qint64 newStorageUnit();
@@ -116,6 +131,8 @@ namespace Share
   private:
     QList<ResourceStorageUnit *> m_units;
     ResourceStorageAuth m_meta;
+    bool m_isPublic;
+    bool m_isEncrypted;
     static const qint64 s_defaultUnitSize;
     static const StorageMethod s_defaultStorageMethod;
     static qint64 s_unitSize;

@@ -23,6 +23,12 @@ namespace Share
     /// \param[in] p_data Data to add.
     virtual void storeData(QByteArray p_data);
 
+  private:
+    /// \brief Compute file name.
+    /// \param[in] p_data the data to store.
+    /// \return The file name is created from SHA1 of \b p_data, the first two characters
+    /// as hash directory and others as file name. SHA1[0,1]/SHA1[0..63]
+    QString computeFileName(QByteArray p_data);
   };
 };
 

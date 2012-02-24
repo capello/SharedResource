@@ -99,4 +99,24 @@ namespace Share
     m_units.push_back(l_resourceStorageUnit);
     return l_position;
   }
+
+  void ResourceStorage::setPublic(bool p_isPublic)
+  {
+    m_isPublic = p_isPublic;
+  }
+
+  void ResourceStorage::setEncrypted(bool p_isEncrypted)
+  {
+    m_isEncrypted = p_isEncrypted;
+  }
+
+  bool ResourceStorage::getPublic()
+  {
+    return m_isPublic;
+  }
+
+  bool ResourceStorage::getEncrypted()
+  {
+    return m_isEncrypted;
+  }
 };

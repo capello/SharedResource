@@ -14,11 +14,14 @@ namespace Share
   public:
     /// \brief Get the singleton instance.
     /// \return \b Cache singletonk
-    Cache &getInstance();
+    static Cache &getInstance();
 
     /// \brief Refresh cache values.
     void refresh();
 
+    /// \brief Get free space.
+    /// \return \b Free \b space available in current cache.
+    qint64 getFreeSpace();
 
 
   private:
