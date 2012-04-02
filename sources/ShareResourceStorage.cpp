@@ -8,6 +8,7 @@
 #include <ShareConfiguration.h>
 #include <ShareResourceStorageUnitLocalCache.h>
 #include <ShareResourceStorageUnitCommunication.h>
+#include <ShareDebug.h>
 
 namespace Share
 {
@@ -51,6 +52,7 @@ namespace Share
 
   void ResourceStorage::store(QByteArray & p_rawResource)
   {
+    WHERE;
     if (m_units.size() == 0)
     {
       // This is a new resource.
@@ -58,7 +60,17 @@ namespace Share
       // Associate the meta to the new storage unit.
       m_meta.add(*m_units.at(l_metaUnitNumber));
     }
-    QByteArray l_rawResource = p_rawResource;
+    QByteArray l_rawResource;
+    if (getEncrypted())
+    {
+      NOT_IMPLEMENTED;
+      l_rawResource = p_rawResource;
+    }
+    else
+    {
+      l_rawResource = p_rawResource;
+    }
+
     QByteArray l_leftPart;
     QByteArray l_rightPart;
     // If need multi part, loop for all part.
@@ -69,10 +81,12 @@ namespace Share
       int l_size = l_rawResource.size();
       qDebug() << "l_size = " << l_size;
       // Copy a block into the new unit.
-      //l_currentUnit->
+      //m_meta.
       l_leftPart = l_rawResource.left(s_unitSize - 1);
       l_rightPart = l_rawResource.right(l_size - s_unitSize);
       l_currentUnit->storeData(l_leftPart);
+      // Add the current unit to meta data.
+      m_meta.add(*l_currentUnit);
 
       l_rawResource = l_rightPart;
     }

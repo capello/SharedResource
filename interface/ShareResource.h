@@ -143,7 +143,7 @@ namespace Share {
     ///
     /// This constructor is used to create a new resource with data
     /// yet initialized. The constructor returns when resource is safe.
-    Resource(QByteArray &p_resource, Auth &p_owner = Auth::Undefine);
+    Resource(QByteArray &p_resource, Auth *p_owner = NULL);
 
     /// \brief Constructor
     /// \param[in] p_resourceId The resource will be retreive by resourceId.
@@ -208,14 +208,14 @@ namespace Share {
     void changeState(State p_newState);
 
   private:
-    ResourceStorage *resource;
-    Id           resourceId;
-    State        state;
-    Unit<qint64> min_peers;
-    Unit<qint64> max_peers;
-    Auth owner;
-    QList<Auth> viewers;
-    QList<Auth> modifiers;
+    ResourceStorage *m_storage;
+    Id           m_resourceId;
+    State        m_state;
+    Unit<qint64> m_min_peers;
+    Unit<qint64> m_max_peers;
+    Auth *m_owner;
+    QList<Auth> m_viewers;
+    QList<Auth> m_modifiers;
   };
 };
 

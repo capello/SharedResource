@@ -9,6 +9,7 @@
 
 #ifndef __SHARE_AUTH_H
 #define __SHARE_AUTH_H
+#include <QByteArray>
 
 namespace Share {
   /// \brief Authentification class.
@@ -20,7 +21,17 @@ namespace Share {
     /// \brief Destructor.
     virtual ~Auth();
 
+    /// \brief operator ==
+    /// Return if class represent the same object.
+    /// \param[in] p_auth A authentification class to compare with \b this.
+    /// \return \li \b true: It is the same object.
+    ///         \li \b false: It is not the same object.
     bool operator == (Auth &p_auth);
+
+    /// \brief Check if this is the good user.
+    /// \param[in] p_chalenge The data encrypted with the public key.
+    /// \return Data decrypted by the key of auth.
+    QByteArray chalenge(QByteArray p_chalenge);
 
     static Auth Undefine;
   private:

@@ -18,25 +18,40 @@ namespace Share
     std::cout << "const\n";
   }
 
-  Resource::Resource(QByteArray &p_resource,Auth &p_owner)
+  Resource::Resource(QByteArray &p_resource, Auth *p_owner)
   {
     // Get the resource storage.
-    resource = ResourceStorage::getAnInstance();
+    m_storage = ResourceStorage::getAnInstance();
 
     // Set the storageMethod.
-    resource->setStorageMethod(Config::getInstance()->getStorageMethod());
+    m_storage->setStorageMethod(Config::getInstance()->getStorageMethod());
 
     // Set owner
-    resource->setOwner(p_owner);
 
-    // If owner if default value, public and encrypted are set to false.
-    if (p_owner == Auth::Undefine)
+    if (p_owner != NULL)
     {
-      resource->setPublic(true);
-      resource->setEncrypted(false);
+      m_owner = p_owner;
+    }
+    else
+    {
+      m_owner = Config::getInstance()->getOwnerByDefault();
     }
 
-    resource->store(p_resource);
+    m_storage->setOwner(*m_owner);
+
+    // If owner if default value, public and encrypted are set to false.
+    if (*m_owner == Auth::Undefine)
+    {
+      m_storage->setPublic(true);
+      m_storage->setEncrypted(false);
+    }
+    else
+    {
+      m_storage->setPublic(Config::getInstance()->getPublicByDefault());
+      m_storage->setEncrypted(Config::getInstance()->getEncryptedByDefault());
+    }
+
+    m_storage->store(p_resource);
 
     std::cout << "Const avec param\n";
   }
@@ -55,7 +70,7 @@ namespace Share
 
   Resource::Id Resource::getId()
   {
-    return resourceId;
+    return m_resourceId;
   }
 
   /////////////////////////////////////////////////////////

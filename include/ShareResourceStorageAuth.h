@@ -37,6 +37,10 @@ namespace Share
 
     /// \brief Associate the storage unit to use
     /// \param[in] p_storageUnit the storage unit to add to “Meta” storage.
+    void addAMetaUnit(ResourceStorageUnit &p_storageUnit);
+
+    /// \brief Add a unit part
+    /// \param[in] p_storageUnit the storage unit to add to storage index.
     void add(ResourceStorageUnit &p_storageUnit);
 
     /// \brief Flush informations to Resource Unit

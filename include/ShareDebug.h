@@ -15,7 +15,7 @@
 
 #define WHERE Where<typeof(*this)> __where_var(__func__)
 
-#define NOT_IMPLEMENTED qWarning() << typeid(*this).name() << "::" << __func__ << "Not yet implemented."
+#define NOT_IMPLEMENTED qWarning() << typeid(*this).name() << "::" << __func__  << __LINE__ << "Not yet implemented."
 
 extern int g_numberIndent_Where;
 

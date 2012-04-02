@@ -8,6 +8,10 @@
 /// \li First scenario is with local storage (no deamon launches) is direct saving file, no peers. (Use Resource_Disk)
 /// \li Second scenario is with local user deamon (no system deamon lanched) try communication with all possible protocols.
 /// \li Third scenario is with system deamon, try communication with all possible protocols.
+/// \msc
+/// s[label = "simpleTextFile"];
+/// s=>s[label="check Params"];
+/// \endmsc
 
 #include <iostream>
 #include "ShareResource.h"
@@ -28,7 +32,7 @@ Share::Resource::Id shareFile(QFile &p_file, Share::Auth & p_auth)
   p_file.close();
   std::cout << "File size: " << p_file.size() << ", bytearray size: " << l_file_in_byte_array.size() << std::endl;
   // Create Resource. It is directly push to ResourceStorage.
-  Share::Resource l_resource(l_file_in_byte_array,p_auth);
+  Share::Resource l_resource(l_file_in_byte_array,&p_auth);
 
   l_resourceId = l_resource.getId();
 
@@ -64,6 +68,8 @@ int main(int nargs, char *argv[])
   }
 
   Share::Resource::Config::getInstance()->setLocalStorage(true);
+  Share::Resource::Config::getInstance()->setEncryptedByDefault(false);
+  Share::Resource::Config::getInstance()->setPublicByDefault(false);
 
   Share::Auth l_auth;
   Share::Resource::Id l_id = shareFile(l_file,l_auth);

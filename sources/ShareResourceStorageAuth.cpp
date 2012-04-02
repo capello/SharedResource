@@ -14,8 +14,14 @@ Share::ResourceStorageAuth::~ResourceStorageAuth()
 {
 }
 
-void Share::ResourceStorageAuth::add(ResourceStorageUnit &p_storageUnit)
+void Share::ResourceStorageAuth::addAMetaUnit(ResourceStorageUnit &p_storageUnit)
 {
   m_resourceUnit.push_back(&p_storageUnit);
   p_storageUnit.setMeta(true);
 }
+
+void Share::ResourceStorageAuth::add(ResourceStorageUnit &p_storageUnit)
+{
+  m_resourceUnit.push_back(&p_storageUnit);
+}
+
