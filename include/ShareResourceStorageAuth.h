@@ -44,6 +44,8 @@ namespace Share
     void add(ResourceStorageUnit &p_storageUnit);
 
     /// \brief Flush informations to Resource Unit
+    /// \pre Should be called before the corresponding store unit.
+    /// This function, construct storage unit to store meta information.
     void flush();
 
     /// \brief Set the main key.

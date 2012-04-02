@@ -136,6 +136,8 @@ namespace Share
 
   void ResourceStorage::flush ()
   {
+    // First flush meta.
+    m_meta.flush();
     // Flush all units.
     for (QList< ResourceStorageUnit* >::const_iterator l_unit = m_units.begin(); l_unit != m_units.end(); l_unit++)
     {

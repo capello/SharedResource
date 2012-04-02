@@ -4,6 +4,7 @@
 /// \version v0.1.0
 ///
 #include <ShareResourceStorageAuth.h>
+#include <ShareDebug.h>
 
 
 Share::ResourceStorageAuth::ResourceStorageAuth()
@@ -25,3 +26,7 @@ void Share::ResourceStorageAuth::add(ResourceStorageUnit &p_storageUnit)
   m_resourceUnit.push_back(&p_storageUnit);
 }
 
+void Share::ResourceStorageAuth::flush()
+{
+  NOT_IMPLEMENTED;
+}

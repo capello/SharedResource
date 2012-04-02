@@ -55,6 +55,7 @@ namespace Share
     Mode getMode();
 
     /// \brief Flush data of the Storage Unit.
+    /// \warning This of unit must be called after storage or meta information created.
     /// This flush storage unit.
     void flush();
 
