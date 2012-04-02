@@ -1,0 +1,16 @@
+Files are store in a directory.
+Files represents Meta data storage units, or Data storage units.
+Files are parts of a global resource.
+We degign by “\emph{root}” directory the base directory use for storage.
+The storage unit class, performs an SHA1 sum and set the name of the resource with this sum.
+The first two characters of name are used to hash the files in \emph{root} directory.
+The file name is not truncated in the subdirectory.
+So, the first two characters of files in a subdirectory are the same for all files.
+
+\begin{tabular}{|c|c|c|}
+ \hline
+ {Variable} & {Description} & {Default value} \\
+ \hline
+ \emph{Root} & Root directory of storage units. & \~/.local/share/CapProject/shareLib/ \\
+ \hline
+\end{tabular}
