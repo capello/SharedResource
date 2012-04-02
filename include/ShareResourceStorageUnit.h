@@ -54,6 +54,10 @@ namespace Share
     /// \return \b Mode The current mode.
     Mode getMode();
 
+    /// \brief Flush data of the Storage Unit.
+    /// This flush storage unit.
+    void flush();
+
     /// \brief Add data to storage unit.
     /// \param[in] p_data Data to add.
     virtual void storeData(QByteArray p_data) = 0;

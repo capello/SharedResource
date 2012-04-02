@@ -124,6 +124,10 @@ namespace Share
     ///         \li \b false: The resource is encrypted.
     bool getEncrypted();
 
+    /// \brief Flush all data to disk or storage system.
+    /// This function returns only when work is done.
+    void flush();
+
   private:
     /// \brief Add new storage unit to this storage unit.
     qint64 newStorageUnit();

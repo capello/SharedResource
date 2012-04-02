@@ -4,6 +4,7 @@
 /// \version v0.1.0
 ///
 
+#include <ShareDebug.h>
 #include <ShareResourceStorageUnit.h>
 #include <QtCore>
 
@@ -63,3 +64,9 @@ Share::ResourceStorageUnit::Mode Share::ResourceStorageUnit::getMode()
 {
   return m_currentMode;
 }
+
+void Share::ResourceStorageUnit::flush()
+{
+  NOT_IMPLEMENTED;
+}
+

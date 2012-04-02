@@ -133,4 +133,13 @@ namespace Share
   {
     return m_isEncrypted;
   }
+
+  void ResourceStorage::flush ()
+  {
+    // Flush all units.
+    for (QList< ResourceStorageUnit* >::const_iterator l_unit = m_units.begin(); l_unit != m_units.end(); l_unit++)
+    {
+      (*l_unit)->flush();
+    }
+  }
 };

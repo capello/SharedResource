@@ -63,6 +63,8 @@ namespace Share
 
   Resource::~Resource()
   {
+    if (m_storage != NULL)
+      m_storage->flush();
 
     std::cout << "Dest\n";
   }
