@@ -1,11 +1,40 @@
-\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Document is an article for a4 paper
+\documentclass[a4paper]{article}
+%% Encoding is utf8
 \usepackage[utf8]{inputenc}
+%% Fonts
 \usepackage[T1]{fontenc}
+%% Include graphic.
 \usepackage{graphicx}
+%% Use PGF to draw.
 \usepackage{tikz}
+%% Babel package
 \usepackage[english]{babel}
+%% Bit fields: to create message descriptions
+\usepackage[bitheight=6ex]{bytefield}
+%% Use hyper reference.
+\usepackage[bookmarksopen=true]{hyperref}
+\hypersetup{%
+pdftitle={Share Resource},
+pdfauthor={Anthony Jaguenaud},
+pdfsubject={Share resource},
+pdfkeywords={}}
+%% Setup links.
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{darkbrown}{rgb}{0.28,0.07,0.07}
+
+\hypersetup{%
+  colorlinks=true,
+  citecolor=darkblue,
+  urlcolor=darkgreen,
+  linkcolor=darkred,
+  menucolor=darkbrown}
 
 \begin{document}
+ \tableofcontents
  \section{Data format}
  \subsection{Directory and file organisation}
   \input{./Graph/DataFormat/DirectoryAndFileOrganisation.tex}

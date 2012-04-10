@@ -1,0 +1,39 @@
+\begin{figure}[htbp]
+  \centering
+\begin{bytefield}[bitwidth=2em]{16}
+    \bitheader{0,7-8,15} \\
+
+    \begin{rightwordgroup}{file header}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \bitbox{1}{R} &
+      \bitbox{1}{S} &
+      \bitbox{1}{-} &
+      \bitbox{1}{M} &
+      \bitbox{1}{E} &
+      \bitbox{1}{T} &
+      \bitbox{1}{A} &
+      \bitbox{1}{\backslash 0} &
+      \bitbox{1}{R} &
+      \bitbox{1}{S} &
+      \bitbox{1}{-} &
+      \bitbox{1}{M} &
+      \bitbox{1}{E} &
+      \bitbox{1}{T} &
+      \bitbox{1}{A} &
+      \bitbox{1}{\backslash 0}
+   \end{rightwordgroup} \\
+
+  \begin{rightwordgroup}{Meta data}
+    \wordbox{2}{First meta field object} \\
+    \wordbox[lrt]{1}{%
+      \parbox{0.6\width}{\centering (Meta field objects)}} \\
+    \skippedwords \\
+    \wordbox{2}{Last meta field object}
+  \end{rightwordgroup}
+  \end{bytefield}
+  \caption{META file format.}
+  \label{fig:META-FILE-FORMAT}
+  \end{figure}
+
+

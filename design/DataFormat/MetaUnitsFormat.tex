@@ -1,1 +1,19 @@
-Meta data format.
+Meta data unit have a particular format.
+The first bytes of the file contain \emph{RS-META}\footnote{This is a 0 string terminated. So there are 8 characters reserved.}.
+Then start real contain.
+See Figure~\ref{fig:META-FILE-FORMAT} for more detail.
+The next 8 bytes are the same than 8 first.
+\begin{itemize}
+ \item If the bytes in range [8..15] are not the same than in range [0..7] that means file is encrypted.
+The key is not store by Share Resource library.
+User software must delegate a key and the library will search the meta units that unlock.
+The key is a symetric key.
+ \item If the bytes in range [8..15] are the same than in range [0..7] that means unit is not encrypted.
+\end{itemize}
+\input{./Graph/DataFormat/MetaFileFormat.tex}
+
+Data in the \emph{META unit} are serialized\footnote{That means that data can be stored with no order.}.
+
+\input{./Graph/DataFormat/MetaFieldFormat.tex}
+
+
