@@ -12,8 +12,49 @@ The key is a symetric key.
 \end{itemize}
 \input{./Graph/DataFormat/MetaFileFormat.tex}
 
-Data in the \emph{META unit} are serialized\footnote{That means that data can be stored with no order.}.
+Data in the \emph{META unit} are serialized\footnote{That means that data can be stored with no order. As the \hyperlink{fields:header-index}{header index} is not to be sure to be in the first place.}.
 
 \input{./Graph/DataFormat/MetaFieldFormat.tex}
+
+The list of fields are in table \ref{tab:field-list}.
+
+\begin{table}[htbp]
+  \begin{tabular}{l|c|c|c}
+    Name & introduce version & obsolete version & last version \\
+    \hline
+    \hyperlink{fields:header-index}{Header index} & 0.1 & & \\
+    \hyperlink{fields:resource-id}{Resource Id} & 0.1 & & \\
+    \hyperlink{fields:data-index}{Data index} & 0.1 & & \\
+    \hyperlink{fields:data-file}{Data file} & 0.1 & & \\
+    \hyperlink{fields:auth-user-index}{Authorized user index} & 0.1 & & \\
+    \hyperlink{fields:auth-user}{Authorized user} & 0.1 & & \\
+    \hyperlink{fields:version}{Resource version} & 0.1 & & \\
+    \hyperlink{fields:parents}{Parents} & 0.1 & & \\
+  \end{tabular}
+  \caption{List of fields in Meta File}
+  \label{tab:field-list}
+\end{table}
+
+\hypertarget{fields:header-index}{\subsubsection{Header index}}
+\field{Header index}{Optional}{Header index is used to help to get information faster than reading fields one by one}
+
+
+
+\hypertarget{fields:resource-id}{\subsubsection{Resource Id}}
+
+\hypertarget{fields:data-index}{\subsubsection{Data index}}
+
+\hypertarget{fields:data-file}{\subsubsection{Data File}}
+
+\hypertarget{fields:auth-user-index}{\subsubsection{Authorized user index}}
+
+\hypertarget{fields:auth-user}{\subsubsection{Authorized user}}
+
+\hypertarget{fields:version}{\subsubsection{Resource version}}
+
+\hypertarget{fields:parents}{\subsubsection{Parents}}
+
+
+
 
 
