@@ -1,11 +1,27 @@
 \newcommand{\field}[4]{
-  \begin{tabular}{|l|c|r|}
-   \cline{1-1} \cline{3-3}
-   #1 & \hspace{5cm} & #2 \\
+  \begin{tabular}{|p{3.5cm}|c|m{1cm}|m{2cm}|}
+   \cline{1-1} \cline{3-4}
+   #1 & \hspace{4cm} & #2 & #3 \\
    \hline
-   \multicolumn{3}{|p{\textwidth-0.7cm}|}{#3} \\
+   \multicolumn{4}{|p{\textwidth}|}{#4} \\
    \hline
   \end{tabular}
-
 }
-%\field{Header index}{Optional}{Header index is used to help to get information faster than reading fields one by one}
+
+\newcommand{\bitfield}[1]
+{
+    \begin{rightwordgroup}{Type (\texttt{#1})}
+      \wordbox{1}{\centering \texttt{#1}}
+    \end{rightwordgroup} \\
+}
+
+%\field{Header index}{Version}{Optional}{Header index is used to help to get information faster than reading fields one by one}
+% \newcommand{\field}[4]{
+%   \begin{tikzpicture}
+%     \node (name) {#1};
+%     \node (opt) {#2};
+%     \node (version) [left = of opt] {#3};
+%     \node (description) {#4};
+%   \end{tikzpicture}
+%
+% }

@@ -1,4 +1,5 @@
-Meta data unit have a particular format.
+Meta unit file format have a particular format.
+This file does not contain data, it contains the list of all data file units used for a resource, the resource id, and others informations detailed below.
 The first bytes of the file contain \emph{RS-META}\footnote{This is a 0 string terminated. So there are 8 characters reserved.}.
 Then start real contain.
 See Figure~\ref{fig:META-FILE-FORMAT} for more detail.
@@ -22,37 +23,142 @@ The list of fields are in table \ref{tab:field-list}.
   \begin{tabular}{l|c|c|c}
     Name & introduce version & obsolete version & last version \\
     \hline
+    \hyperlink{fields:meta-version}{Meta version} & 0.1 & & \\
     \hyperlink{fields:header-index}{Header index} & 0.1 & & \\
     \hyperlink{fields:resource-id}{Resource Id} & 0.1 & & \\
+    \hyperlink{fields:resource-name}{Resource Name} & 0.1 & & \\
     \hyperlink{fields:data-index}{Data index} & 0.1 & & \\
     \hyperlink{fields:data-file}{Data file} & 0.1 & & \\
-    \hyperlink{fields:auth-user-index}{Authorized user index} & 0.1 & & \\
+    \hyperlink{fields:auth-user-index}{Authorized users index} & 0.1 & & \\
     \hyperlink{fields:auth-user}{Authorized user} & 0.1 & & \\
     \hyperlink{fields:version}{Resource version} & 0.1 & & \\
-    \hyperlink{fields:parents}{Parents} & 0.1 & & \\
+    \hyperlink{fields:parents}{Parent} & 0.1 & & \\
   \end{tabular}
   \caption{List of fields in Meta File}
   \label{tab:field-list}
 \end{table}
 
-\hypertarget{fields:header-index}{\subsubsection{Header index}}
-\field{Header index}{Optional}{Header index is used to help to get information faster than reading fields one by one}
 
+\hypertarget{fields:meta-version}{\subsubsection{Meta version}}
+\field{Meta version}{v0.1}{Mandatory}{Meta version field is the version of the file format. For example, v0.1 means that meta file respects the 0.1 file format.}
+
+This is the field that define the version format of meta file. This field is mandatory, and it should be the first field of file.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader{0,7-8,15-16,23-24,31} \\
+
+    \begin{rightwordgroup}{Size}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \wordbox{1}{\centering 12}
+    \end{rightwordgroup} \\
+    \bitfield{0x00010001}
+
+    \begin{rightwordgroup}{Version}
+      \bitbox{16}{Main version}
+      \bitbox{8}{Minor version}
+      \bitbox{8}{Maintenance version}
+    \end{rightwordgroup}
+  \end{bytefield}
+  \caption{META version field.}
+  \label{fig:FIELD:meta-version}
+\end{figure}
+
+The figure \ref{fig:FIELD:meta-version} describes the object.
+First field is the size of object and its value is 12.
+Second field is the type of object, the type of this object is: \texttt{0x00010001}.
+Third field is the version of the file format.
+Main version is the main version of compatible software.
+Major version is the major number of compatible software.
+Maintenance version is the bugfix version of a delivered version.
+
+The values change only if file format change.
+The version 0.2.1 of software can have a 0.1.0 file format version.
+
+Ex: The software 0.4.5 have a file format version: 0.3.1.
+Message is visible on figure \ref{fig:FIELD:meta-version:example}
+\begin{figure}[htbp]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader{0,7-8,15-16,23-24,31} \\
+
+    \begin{rightwordgroup}{Size}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \wordbox{1}{\centering 12}
+    \end{rightwordgroup} \\
+    \bitfield{0x00010001}
+
+    \begin{rightwordgroup}{Version}
+      \bitbox{16}{0}
+      \bitbox{8}{3}
+      \bitbox{8}{1}
+    \end{rightwordgroup}
+  \end{bytefield}
+  \caption{META version field example.}
+  \label{fig:FIELD:meta-version:example}
+\end{figure}
+
+\hypertarget{fields:header-index}{\subsubsection{Header index}}
+\field{Header index}{v0.1}{Optional}{Header index is used to help to get information faster than reading fields one by one}
+
+This index is used to create an rapid acces to main informations.
+This main index reference others index.
+The order of informations are important.
+The figure \ref{fig:FIELD:header-index} describes the format.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader{0,7-8,15-16,23-24,31} \\
+
+    \begin{rightwordgroup}{Size}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \wordbox{1}{\centering 20}
+    \end{rightwordgroup} \\
+    \bitfield{0x00010002}
+
+    \begin{rightwordgroup}{Resource Id}
+      \wordbox{1}{offset of \hyperlink{fields:resource-id}{Resource Id}}
+    \end{rightwordgroup}\\
+    \begin{rightwordgroup}{Users index}
+      \wordbox{1}{offset of \hyperlink{fields:auth-user-index}{Users index}}
+    \end{rightwordgroup}\\
+    \begin{rightwordgroup}{Resource Id}
+      \wordbox{1}{offset of \hyperlink{fields:data-index}{Data index}}
+    \end{rightwordgroup}\\
+  \end{bytefield}
+  \caption{META Header index.}
+  \label{fig:FIELD:header-index}
+\end{figure}
 
 
 \hypertarget{fields:resource-id}{\subsubsection{Resource Id}}
+\field{Resource Id}{v0.1}{Mandatory}{Resource Id is the Id of the resource. This Id is a uniq Id to get resource. By default Id is the initial Id SHA1 of initial Resource.}
+
+\hypertarget{fields:resource-name}{\subsubsection{Resource Name}}
+\field{Resource Name}{v0.1}{Optional}{The name of a resource. This name can be used to retreive a resource from its name.}
 
 \hypertarget{fields:data-index}{\subsubsection{Data index}}
+\field{Data index}{v0.1}{Optional}{List all \hyperlink{fields:data-file}{Data files fields} use for store the resource.}
 
 \hypertarget{fields:data-file}{\subsubsection{Data File}}
+\field{Data file}{v0.1}{Mandatory}{This field is used to retreive the file cache of a part of the resource.}
 
-\hypertarget{fields:auth-user-index}{\subsubsection{Authorized user index}}
+\hypertarget{fields:auth-user-index}{\subsubsection{Authorized users index}}
+\field{Authorized users index}{v0.1}{Optional}{This index is used to store all authorized user.}
 
 \hypertarget{fields:auth-user}{\subsubsection{Authorized user}}
+\field{Authorized user}{v0.1}{Mandatory}{This field define a user. This field is encrypted only corresponding user can read the field. The key for encrypted fields is stored encrypted with the public key of user.}
 
 \hypertarget{fields:version}{\subsubsection{Resource version}}
+\field{Resource version}{v0.1}{Mandatory}{This field is used to follow changes in a resource. Detect that current version is obsolete.}
 
-\hypertarget{fields:parents}{\subsubsection{Parents}}
+\hypertarget{fields:parents}{\subsubsection{Parent}}
+\field{Parent}{v0.1}{Mandatory}{This field determines the previous version of the resource. There can be various parents in case of merge.}
 
 
 
