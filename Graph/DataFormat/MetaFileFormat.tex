@@ -21,7 +21,10 @@
       \bitbox{1}{E} &
       \bitbox{1}{T} &
       \bitbox{1}{A} &
-      \bitbox{1}{\textbackslash 0}
+      \bitbox{1}{\textbackslash 0}\\
+      \bitbox{4}{META file number}
+      \bitbox{8}{Start offset in META raw “file”}
+      \bitbox{4}{Control header word}
    \end{rightwordgroup} \\
 
   \begin{rightwordgroup}{Meta data}
@@ -30,7 +33,13 @@
       \parbox{0.6\width}{\centering (Meta field objects)}} \\
     \skippedwords \\
     \wordbox{2}{Last meta field object}
-  \end{rightwordgroup}
+  \end{rightwordgroup} \\
+  \begin{rightwordgroup}{Footer}
+    \bitbox{8}{\hyperlink{fields:end-of-file}{End of File}}
+    \bitbox[tlr]{8}{} \\
+    \wordbox[blr]{1}{SHA1 of next META file}
+  \end{rightwordgroup} \\
+
   \end{bytefield}
   \caption{META file format.}
   \label{fig:META-FILE-FORMAT}

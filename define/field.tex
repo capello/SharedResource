@@ -10,10 +10,21 @@
 
 \newcommand{\bitfield}[1]
 {
-    \begin{rightwordgroup}{Type (\texttt{#1})}
+    \begin{rightwordgroup}{Type\\\texttt{#1}}
       \wordbox{1}{\centering \texttt{#1}}
     \end{rightwordgroup} \\
 }
+\newcommand{\colorbitbox}[3]{%
+\rlap{\bitbox{#2}{\color{#1}\rule{\width}{\height}}}%
+\bitbox{#2}{#3}}
+
+\newcommand{\SHABitboxes}{\bitbox{8}{[0]}
+      \bitbox{8}{[1]}
+      \bitbox{16}{\dots} \\
+      \skippedwords \\
+      \bitbox{16}{\dots}
+      \bitbox{8}{[38]}
+      \bitbox{8}{[39]}}
 
 %\field{Header index}{Version}{Optional}{Header index is used to help to get information faster than reading fields one by one}
 % \newcommand{\field}[4]{
@@ -24,4 +35,15 @@
 %     \node (description) {#4};
 %   \end{tikzpicture}
 %
+% }
+% \newcommand{\field}[4]{
+%   \begin{tabular}{|c|c|c|c|}
+%   \cline{1-1}
+%   #2 \\
+%   \hline
+%   \multirow{2}{*}{\rotatebox{90}{#1 }} & \multicolumn{3}{m{10cm}|}{#4} \\
+%   \cline{2-4}
+%   & \multicolumn{2}{c|}{#3} \\
+%   \cline{1-3}
+%   \end{tabular}
 % }
