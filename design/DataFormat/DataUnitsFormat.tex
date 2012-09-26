@@ -1,1 +1,28 @@
-Data format.
+The data are store in data unit. The format of these units is composed with a header, data and a footer.
+Detail are in figure~\ref{fig:DATA-FILE-FORMAT}~:
+\begin{figure}[htbp]
+  \centering
+\begin{bytefield}[bitwidth=2em]{16}
+    \bitheader{0,7-8,15} \\
+
+    \begin{rightwordgroup}{file header}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \wordbox{2}{Resource ID}
+   \end{rightwordgroup} \\
+
+  \begin{rightwordgroup}{Data\\\emph{encrypted}}
+    \wordbox{5}{%
+      \parbox{0.6\width}{\centering (DATA)}}
+  \end{rightwordgroup} \\
+  \begin{rightwordgroup}{Footer\\\emph{encrypted}}
+    \wordbox{2}{SHA1 of DATA}
+  \end{rightwordgroup} \\
+
+  \end{bytefield}
+  \caption{DATA file format.}
+  \label{fig:DATA-FILE-FORMAT}
+\end{figure}
+
+The first field is the resource id. With this field, we can retreive the META files of resource.
+Data part is data array sent by software. The SHA1 is the SHA1 of data. The parts DATA and footer can be encrypted depending of META files.

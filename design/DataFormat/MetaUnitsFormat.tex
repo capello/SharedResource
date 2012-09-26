@@ -27,9 +27,10 @@ See figure \ref{fig:control-header-word} for more detail.
   \begin{bytefield}{32}
     \bitheader{0,7-8,15-16,23-24,31} \\
 
+    \bitbox{1}{\rotatebox{90}{FIRST}}
     \bitbox{1}{\rotatebox{90}{LAST}}
 
-    \colorbitbox{lightgray}{31}{reserved}
+    \colorbitbox{lightgray}{30}{reserved}
 
   \end{bytefield}
   \caption{Control header word.}
@@ -336,14 +337,216 @@ The data file contain the SHA1 of the corresponding data file and the sequence n
 \hypertarget{fields:auth-user-index}{\subsubsection{Authorized users index}}
 \field{Authorized users index}{v0.1}{Optional}{This index is used to store all authorized user.}
 
+This field is an index of authorized user fields.
+The authorized user index is a field with 16 entries.
+For each entry, we have a record containing: the offset of next target, type of target (authorized user index or authorized user).
+Offset is absolute or relative position into META file.
+See figure \ref{fig:FIELD:authorized-user-index} for detail of index and figure \ref{fig:FIELD:authorized-user-index-record} for entry format.
+\begin{figure}[htbp]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader{0,7-8,15-16,23-24,31} \\
+    \begin{rightwordgroup}{Size}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \wordbox{1}{\centering 392 }
+    \end{rightwordgroup} \\
+    \bitfield{0x00010007}
+
+    \begin{rightwordgroup}{Index\\ records}
+      \wordbox{3}{Record[0]} \\
+      \skippedwords \\
+      \wordbox{3}{Record[15]}
+    \end{rightwordgroup}\\
+
+  \end{bytefield}
+
+   \caption{META Authorized user index.}
+  \label{fig:FIELD:authorized-user-index}
+
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader{0,7-8,15-16,23-24,31} \\
+    \begin{rightwordgroup}{Control}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \bitbox{1}{\rotatebox{90}{\tiny I/U}}
+      \bitbox{1}{\rotatebox{90}{\tiny A/R}}
+      \colorbitbox{lightgray}{30}{}
+    \end{rightwordgroup} \\
+
+    \begin{rightwordgroup}{64 bits\\ offset}
+      \wordbox{2}{\centering  Offset in \emph{raw file}}
+    \end{rightwordgroup}\\
+
+  \end{bytefield}
+
+   \caption{META Authorized user index.}
+  \label{fig:FIELD:authorized-user-index-record}
+
+\end{figure}
+
+The control word have some bit of configuration to interpret the Offset field:
+\begin{itemize}
+  \item I/U bit means Index or User:
+    \begin{description}
+      \item[0] Index: target is a data index;
+      \item[1] File: target is a data file;
+    \end{description}
+  \item A/R bit means Absolute or Relative:
+    \begin{description}
+      \item [0] Absolute, offset has to be interpreted as offset from begining of raw meta file;
+      \item [1] Relative, offset has to be interpreted as offset from the data index start field.
+        In this case the offset word has to be interpreted as signed 64 integer.
+    \end{description}
+
+\end{itemize}
+
+
 \hypertarget{fields:auth-user}{\subsubsection{Authorized user}}
 \field{Authorized user}{v0.1}{Mandatory}{This field define a user. This field is encrypted only corresponding user can read the field. The key for encrypted fields is stored encrypted with the public key of user.}
 
+This field is used for authentification.
+The goal of this library is not to known user or groups.
+The only known by library is public key.
+When a user is authorized, this field is used and encrypted by the user public key.
+Then only this user can decrypt this field and obtain need information to decrypt the data files.
+The field have a set of symetric keys and a range of data sequence number to data files.
+See figure \ref{fig:FIELD:authorized-user} for details.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader{0,7-8,15-16,23-24,31} \\
+    \begin{rightwordgroup}{Size}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \wordbox{1}{\centering 648 + Sign PGP}
+    \end{rightwordgroup} \\
+    \bitfield{0x00010008}
+
+    \begin{rightwordgroup}{User sign}
+      \wordbox{1}{Sign PGP}
+    \end{rightwordgroup}\\
+
+    \begin{rightwordgroup}{Users\\ records\\ (encrypted)}
+      \wordbox{3}{Record[0]} \\
+      \skippedwords \\
+      \wordbox{3}{Record[15]}
+    \end{rightwordgroup}\\
+
+  \end{bytefield}
+
+   \caption{META Authorized user.}
+  \label{fig:FIELD:authorized-user}
+
+\end{figure}
+
+Each record contain the first and last META DATA file. If 0 that means first or last.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader{0,7-8,15-16,23-24,31} \\
+    \begin{rightwordgroup}{Range}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \wordbox{1}{First META DATA in range.}\\
+      \wordbox{1}{Last META DATA in range}
+    \end{rightwordgroup} \\
+
+    \begin{rightwordgroup}{256 bits\\ 3DES\\key}
+      \wordbox{8}{Key}
+    \end{rightwordgroup}\\
+
+  \end{bytefield}
+
+   \caption{META Authorized user.}
+  \label{fig:FIELD:authorized-user-record}
+
+\end{figure}
 \hypertarget{fields:version}{\subsubsection{Resource version}}
 \field{Resource version}{v0.1}{Mandatory}{This field is used to follow changes in a resource. Detect that current version is obsolete.}
+
+This field describes the version field.
+This field is the SHA1 of the entire resource when resource is closed.
+See description in figure\ref{fig:FIELD:Resource-version}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader{0,7-8,15-16,23-24,31} \\
+    \begin{rightwordgroup}{Size}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \wordbox{1}{\centering 48 }
+    \end{rightwordgroup} \\
+    \bitfield{0x00010009}
+
+    \begin{rightwordgroup}{SHA1}
+      \SHABitboxes
+    \end{rightwordgroup}
+
+  \end{bytefield}
+
+   \caption{META Resource version.}
+  \label{fig:FIELD:Resource-version}
+
+\end{figure}
 
 \hypertarget{fields:parents}{\subsubsection{Parent}}
 \field{Parent}{v0.1}{Mandatory}{This field determines the previous version of the resource. There can be various parents in case of merge.}
 
+This field contains the SHA1 of one of the parents of the resource.
+The parent is the previous version.
+A resource can have various parent field in case of multiple changes and merge done\footnote{The case of various parents is for later use.}.
+See figure\ref{fig:FIELD:Parent} for more details.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader{0,7-8,15-16,23-24,31} \\
+    \begin{rightwordgroup}{Size}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \wordbox{1}{\centering 48 }
+    \end{rightwordgroup} \\
+    \bitfield{0x0001000A}
+
+    \begin{rightwordgroup}{SHA1}
+      \SHABitboxes
+    \end{rightwordgroup}
+
+  \end{bytefield}
+
+   \caption{META Parent.}
+  \label{fig:FIELD:Parent}
+
+\end{figure}
 \hypertarget{fields:end-of-file}{\subsubsection{End of file}}
 \field{End of file}{v0.1}{Mandatory}{This field mark end of this meta file. The field format is standard, but the field is in the footer, and no in the \emph{meta data}.}
+
+This the last field of a META file.
+See figure\ref{fig:FIELD:End-of-file} for details.
+This field is part of footer.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader{0,7-8,15-16,23-24,31} \\
+    \begin{rightwordgroup}{Size}
+      % We have to do the \parbox explicitly in the next line because
+      % \hyperlink typesets its argument in horizontal mode.\parbox{\width}{}
+      \wordbox{1}{\centering 8 }
+    \end{rightwordgroup} \\
+    \bitfield{0x0001FFFF}
+
+  \end{bytefield}
+
+   \caption{META End of file.}
+  \label{fig:FIELD:End-of-file}
+
+\end{figure}
+
