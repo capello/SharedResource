@@ -31,7 +31,7 @@ void Share::ResourceStorageUnitLocalCache::storeData(QByteArray p_data)
   QDir l_destinationDir(Configuration::getInstance()->getCachePath());
   if (!l_destinationDir.exists())
   {
-    qCritical("Cache directory “%s” does not exists.",Configuration::getInstance()->getCachePath());
+    qCritical("Cache directory “%s” does not exists.",Configuration::getInstance()->getCachePath().toStdString().c_str());
     return;
   }
 

@@ -21,6 +21,7 @@ void usage(char *p_name, std::ostream& p_stream = std::cout)
   p_stream << "Usage:\n";
   p_stream << "  - " << p_name << " <file>.\n";
   p_stream << std::endl << "Return 0 if no error, else return 1." << std::endl;
+  // Test
 }
 
 Share::Resource::Id shareFile(QFile &p_file, Share::Auth & p_auth)

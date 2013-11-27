@@ -3,7 +3,8 @@
 /// \author Anthony Jaguenaud
 /// \version v0.1.0
 ///
-/// The class store data to a file, to a deamon.
+/// The class store data to files, to a deamon.
+/// The class manage storage units for a resource.
 ///
 
 #ifndef __SHARE_RESOURCE_STORAGE_H
@@ -13,7 +14,7 @@
 #include <QtGlobal>
 #include <ShareAuth.h>
 #include <ShareResourceStorageUnit.h>
-#include <ShareResourceStorageAuth.h>
+#include <ShareResourceStorageMeta.h>
 #include <QList>
 
 
@@ -134,7 +135,7 @@ namespace Share
 
   private:
     QList<ResourceStorageUnit *> m_units;
-    ResourceStorageAuth m_meta;
+    ResourceStorageMeta m_meta;
     bool m_isPublic;
     bool m_isEncrypted;
     static const qint64 s_defaultUnitSize;

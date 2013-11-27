@@ -18,7 +18,7 @@
 namespace Share
 {
   /// \brief ResourceStorageUnit <-> Auth link
-  class ResourceStorageAuth
+  class ResourceStorageMeta
   {
   public:
     /// \brief Rights that process using the library have on the resource.
@@ -31,9 +31,9 @@ namespace Share
 
   public:
     /// \brief Constructor
-    ResourceStorageAuth();
+    ResourceStorageMeta();
     /// \brief Destructor
-    ~ResourceStorageAuth();
+    ~ResourceStorageMeta();
 
     /// \brief Associate the storage unit to use
     /// \param[in] p_storageUnit the storage unit to add to “Meta” storage.

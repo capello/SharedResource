@@ -68,10 +68,12 @@ Share::Configuration * Share::Configuration::getInstance()
 bool Share::Configuration::readConf()
 {
   WHERE;
+    qDebug() << "Read systemConfig" << organisationName << ", " << applicationName;
   QSettings l_systemSettings(QSettings::SystemScope,organisationName,applicationName);
+    qDebug() << "Read userConfig";
   QSettings l_userSettings(QSettings::UserScope,organisationName,applicationName);
   bool l_returnValue = false;
-    qDebug() << "Read systemConfig";
+    qDebug() << "Copy systemConfig";
     currentSettings.systemConfig.useSystemDeamon.value = l_systemSettings.value(currentSettings.systemConfig.useSystemDeamon.name).toBool();
     currentSettings.systemConfig.systemCachePath.value = l_systemSettings.value(currentSettings.systemConfig.systemCachePath.name).toString();
     currentSettings.systemConfig.systemCacheQuota.value = l_systemSettings.value(currentSettings.systemConfig.systemCacheQuota.name).toInt();
@@ -89,7 +91,7 @@ bool Share::Configuration::readConf()
     currentSettings.systemConfig.userDeamon.value.internalCommunicationType.value = static_cast<Share::Communication::Type> (l_systemSettings.value(currentSettings.systemConfig.userDeamon.value.internalCommunicationType.name).toInt());
     currentSettings.systemConfig.userDeamon.value.internalListenPort.value = l_systemSettings.value(currentSettings.systemConfig.userDeamon.value.internalListenPort.name).toInt();
     l_systemSettings.endGroup();
-    qDebug() << "Read userConfig.";
+    qDebug() << "copy userConfig.";
     currentSettings.userConfig.useSystemConfig.value = l_userSettings.value(currentSettings.userConfig.useSystemConfig.name).toBool();
     currentSettings.userConfig.useUserDeamon.value = l_userSettings.value(currentSettings.userConfig.useUserDeamon.name).toBool();
     currentSettings.userConfig.userCachePath.value = l_userSettings.value(currentSettings.userConfig.userCachePath.name).toString();

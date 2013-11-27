@@ -13,7 +13,7 @@ SET(libShareResource_SOURCES sources/ShareResource.cpp
                               sources/ShareResourceStorage.cpp
                               sources/ShareCommunicationNetwork.cpp
                               sources/ShareConfiguration.cpp
-                              sources/ShareResourceStorageAuth.cpp
+                              sources/ShareResourceStorageMeta.cpp
                               sources/ShareResourceStorageUnit.cpp
                               sources/ShareResourceStorageUnitLocalCache.cpp
                               sources/ShareResourceStorageUnitCommunication.cpp
@@ -30,10 +30,10 @@ link_directories(${QCA_LIBRARY_DIR})
 
 ADD_DEFINITIONS(${QT_DEFINITIONS})
 
-ADD_LIBRARY(libShareResource SHARED ${libShareResource_SOURCES}
+ADD_LIBRARY(ShareResource SHARED ${libShareResource_SOURCES}
   ${libShareResource_HEADERS_MOC})
 
-TARGET_LINK_LIBRARIES(libShareResource ${QT_LIBRARIES} -lqca)
+TARGET_LINK_LIBRARIES(ShareResource ${QT_LIBRARIES} -lqca)
 
 add_subdirectory(Tools)
 add_subdirectory(Tests)

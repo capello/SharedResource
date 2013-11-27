@@ -15,4 +15,4 @@ QT4_WRAP_CPP(ShareConfigSoftware_SOURCES ${ShareConfigSoftware_HEADERS})
 
 add_executable(ShareConfigSoftware ${ShareConfigSoftware_SOURCES})
 
-TARGET_LINK_LIBRARIES(ShareConfigSoftware ${QT_LIBRARIES} libShareResource)
+TARGET_LINK_LIBRARIES(ShareConfigSoftware ${QT_LIBRARIES} ShareResource)

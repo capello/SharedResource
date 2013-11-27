@@ -108,6 +108,7 @@ namespace Share {
       Auth * getOwnerByDefault();
 
       /// \brief Get instance method.
+      /// This function return instance of configuration. If needed, it allocate it.
       /// \return A pointer on instance.
       static Config * getInstance();
 
@@ -117,7 +118,7 @@ namespace Share {
       bool m_isPublicByDefault;
       bool m_isEncryptedByDefault;
       Auth *m_defaultOwner;
-      static Config s_instance;
+      static Config *sp_instance;
 
     };
 

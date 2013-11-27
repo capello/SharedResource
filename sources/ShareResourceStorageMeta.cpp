@@ -3,30 +3,30 @@
 /// \author Anthony Jaguenaud
 /// \version v0.1.0
 ///
-#include <ShareResourceStorageAuth.h>
+#include <ShareResourceStorageMeta.h>
 #include <ShareDebug.h>
 
 
-Share::ResourceStorageAuth::ResourceStorageAuth()
+Share::ResourceStorageMeta::ResourceStorageMeta()
 {
 }
 
-Share::ResourceStorageAuth::~ResourceStorageAuth()
+Share::ResourceStorageMeta::~ResourceStorageMeta()
 {
 }
 
-void Share::ResourceStorageAuth::addAMetaUnit(ResourceStorageUnit &p_storageUnit)
+void Share::ResourceStorageMeta::addAMetaUnit(ResourceStorageUnit &p_storageUnit)
 {
   m_resourceUnit.push_back(&p_storageUnit);
   p_storageUnit.setMeta(true);
 }
 
-void Share::ResourceStorageAuth::add(ResourceStorageUnit &p_storageUnit)
+void Share::ResourceStorageMeta::add(ResourceStorageUnit &p_storageUnit)
 {
   m_resourceUnit.push_back(&p_storageUnit);
 }
 
-void Share::ResourceStorageAuth::flush()
+void Share::ResourceStorageMeta::flush()
 {
   NOT_IMPLEMENTED;
 }

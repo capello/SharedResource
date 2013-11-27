@@ -11,7 +11,7 @@
 
 namespace Share
 {
-  Resource::Config Resource::Config::s_instance;
+  Resource::Config *Resource::Config::sp_instance;
 
   Resource::Resource()
   {
@@ -136,7 +136,11 @@ namespace Share
 
   Resource::Config *Resource::Config::getInstance()
   {
-    return &s_instance;
+    if (sp_instance == NULL)
+    {
+      sp_instance = new Share::Resource::Config;
+    }
+    return sp_instance;
   }
 
   /// \TODO To implements. if load is true, set manual Modified to false.
