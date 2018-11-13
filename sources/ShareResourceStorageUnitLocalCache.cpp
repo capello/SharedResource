@@ -9,7 +9,7 @@
   #include <ShareDebug.h>
 #include <ShareConfiguration.h>
 #include <ShareCache.h>
-#include <qca_basic.h>
+#include <QtCrypto/qca_basic.h>
 
 Share::ResourceStorageUnitLocalCache::ResourceStorageUnitLocalCache()
 {

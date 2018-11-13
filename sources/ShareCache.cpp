@@ -31,7 +31,7 @@ Share::Cache & Share::Cache::getInstance()
 void Share::Cache::refresh()
 {
   WHERE;
-  m_cacheFree = 2 * 1024 * 1024 * 1024;
+  m_cacheFree = (qint64)2 * 1024 * 1024 * 1024;
   NOT_IMPLEMENTED;
 }
 

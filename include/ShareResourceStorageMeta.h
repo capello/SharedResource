@@ -13,7 +13,7 @@
 
 
 #include <ShareResourceStorageUnit.h>
-#include <QtCrypto>
+#include <QtCrypto/QtCrypto>
 
 namespace Share
 {
